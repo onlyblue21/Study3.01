@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Profile">
+
+
+	<!-- 프로필 등록 -->
+	<insert id="profileconfirm" parameterType="Profile">
+	
+	
+	
+	
+	</insert>
+	
+	<!-- 프로필 수정 -->
+	<update id="profilemodify" parameterType="Profile">
+	
+	
+	
+	</update>
+</mapper>

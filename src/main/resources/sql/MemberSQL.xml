@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE mapper
+ 		PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Dao">
+
+
+
+	
+	<insert id="memberjoin" parameterType="Member" >
+		<![CDATA[
+		INSERT INTO
+				MEMBER
+					(	ID
+						,PW
+						,NICK_NAME
+						,USER_LEVEL
+						,USER_EXP
+						,ACCESS_COUNT
+						,MEMBER_POINT
+						,ISRT_TIME
+						,DROP_OUT_TIME
+						,LAST_UPDT_TIME
+						,EMAIL
+						,STS		)
+		VALUES
+					(	#{id}
+						,#{pw}
+						,#{nick_name}
+						,#{user_level}
+						,#{user_exp}
+						,#{access_count}
+						,#{member_point}
+						,NOW()
+						,NOW()
+						,NOW()
+						,#{email}
+						,#{sts}		)
+	]]>
+	</insert>
+</mapper>

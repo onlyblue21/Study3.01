@@ -19,4 +19,9 @@ public class MemberServiceImpl implements MemberService{
 		return memberdao.memberjoin(membervo);
 	}
 	
+	@Override
+	public boolean Login(MemberVo membervo) throws Exception {
+		return memberdao.Login(membervo);
+	
+}
 }

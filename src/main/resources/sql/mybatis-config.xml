@@ -12,16 +12,14 @@
 	
 	<!-- FQCN(Full Qualified Class Name) Alias(별칭관리) -->
 	<typeAliases>
-		<typeAlias type="com.main.vo.MainVo"	 		alias="Main"/>
 		<typeAlias type="com.member.vo.MemberVo"	 	alias="Member"/>
 		<typeAlias type="com.letter.vo.LetterVo"	 	alias="Letter"/>
-		<typeAlias type="com.Profile.vo.profile"	 	alias="Profile"/>
+		<typeAlias type="com.profile.vo.ProfileVo"	 	alias="Profile"/>
 	</typeAliases>
 
 
 	<!-- SQL Definition :: file include -->
 	<mappers>
-		<mapper resource="sql/MainSQL.xml"/>
 		<mapper resource="sql/MemberSQL.xml"/>
 		<mapper resource="sql/LetterSQL.xml"/>
 		<mapper resource="sql/ProfileSQL.xml"/>

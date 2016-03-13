@@ -3,7 +3,7 @@
 <mapper namespace="letter">
 	
 	<!-- 쪽지 리스트 조회 -->
-	<select id="selectLetterList" resultType="com.letter.vo.LetterVo">
+	<select id="selectLetterList" resultType="Letter">
 		SELECT LETTER_SEQ
 			  ,RECEIVER_ID
 			  ,SENDER_ID

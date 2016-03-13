@@ -17,4 +17,10 @@ public class MemberDao {
 		return sqlSession.insert("memberjoin", membervo);
 	}
 	
+	public boolean Login(MemberVo membervo) throws Exception{
+		int x = sqlSession.selectOne("Login", membervo);
+		System.out.println("x=" + x);
+		return x < 1 ? false : true;
+	}
+	
 }

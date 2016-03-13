@@ -165,7 +165,7 @@
 		</div>
 	</div>
 	 --%>
-
+</div>
 	<br/>
 	<br/>
 
@@ -193,7 +193,7 @@
 											<td>아이디 : <input type="text" name="id" title="아이디" value="" /></td>
 										</tr>
 										<tr>
-											<td>pw : <input type="text" name="pw" title="비밀번호" value="" /></td>
+											<td>pw : <input type="password" name="pw" title="비밀번호" value="" /></td>
 										</tr>
 									</c:otherwise>
 								</c:choose>
@@ -201,8 +201,8 @@
 							</tr>
 						<tr>
 							<td>
-								 <input type="submit" value="로그인" title="로그인" />
-							     <input type="button" value="회원가입" title="회원가입" onclick="memberJoin();">
+								 <input type="submit" value="로그인" title="로그인" /> 
+							     <input type="button" value="회원가입" title="회원가입" onclick="memberJoin();"> 
 							
 								</td>
 						</tr>

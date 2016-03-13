@@ -38,8 +38,9 @@ public class MemberController {
 			
 			memberservice.memberjoin(membervo);
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
-			model.addAttribute("LoginResult",membervo);
+			model.addAttribute("LoginResult","SUCCESS");
 			System.out.println("회원가입 완료!");
+			
 		}
 		return "/main/MainR";
 	}

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.member.dao.MemberDao;
+import com.member.service.MemberService;
 import com.member.vo.MemberVo;
 
 /**
@@ -23,8 +24,8 @@ import com.member.vo.MemberVo;
 @Controller
 public class MainController {
 
-	@Resource(name = "memberdao")
-	public MemberDao memberdao;
+	@Resource(name="MemberService")
+	public MemberService memberservice; 
 	
 	
 	/**
@@ -49,10 +50,11 @@ public class MainController {
 		
 		if(null == clientIp || clientIp.length() == 0  || clientIp.toLowerCase().equals("unknown")){
 		  clientIp = request.getHeader("REMOTE_ADDR");
-		}
+		 
 		  if(null == clientIp || clientIp.length() == 0  || clientIp.toLowerCase().equals("unknown")){
-		  clientIp = request.getRemoteAddr();
+			  clientIp = request.getRemoteAddr();
 		  }
+		}
 		System.out.println("접속clientIp= " + clientIp);
 	}
 	
@@ -95,7 +97,7 @@ public class MainController {
 		System.out.println("id,pw 값 불러와서 로그인함");
 
 		boolean _login = false;
-		_login = memberdao.Login(membervo);
+		_login = memberservice.Login(membervo);
 		System.out.println("_login = " + _login);
 		System.out.println("mainvoid = " + membervo.getId());
 		System.out.println("mainvopw = " + membervo.getPw());

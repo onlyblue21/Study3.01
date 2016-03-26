@@ -28,6 +28,7 @@ public class MemberVo {
 	  private String job;
 	  private String religion;
 	  private String introduction;
+	  
 	public int getMember_seq() {
 		return member_seq;
 	}

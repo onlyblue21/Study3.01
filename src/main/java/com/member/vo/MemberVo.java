@@ -4,131 +4,177 @@ import java.util.Date;
 
 public class MemberVo {
 
-	private int member_seq;
-	private String id;
-	private String pw;
-	private String nick_name;
-	private int user_level;
-	private int user_exp;
-	private int access_count;
-	private int member_point;
-	private Date isrt_time;
-	private Date drop_out_time;
-	private Date last_updt_time;
-	private String email;
-	private String sts;
-	
-	
-	public Date getDrop_out_time() {
-		return drop_out_time;
-	}
-
-	public void setDrop_out_time(Date drop_out_time) {
-		this.drop_out_time = drop_out_time;
-	}
-
+	  private int member_seq;
+	  private String id;
+	  private String password;
+	  private String user_name;
+	  private String nick_name;
+	  private String access_count;
+	  private int level;
+	  private long point;
+	  private Date insert_date;
+	  private Date drop_out_date;
+	  private Date last_update_date;
+	  private String email;
+	  private char member_status;
+	  private char profile_open_yn;
+	  private String phone_num;
+	  private String address;
+	  private char birth;
+	  private char sex;
+	  private String nationality;
+	  private String live_nationality;
+	  private String city;
+	  private String job;
+	  private String religion;
+	  private String introduction;
 	public int getMember_seq() {
 		return member_seq;
 	}
-
 	public void setMember_seq(int member_seq) {
 		this.member_seq = member_seq;
 	}
-
 	public String getId() {
 		return id;
 	}
-
 	public void setId(String id) {
 		this.id = id;
 	}
-
-	public String getPw() {
-		return pw;
+	public String getPassword() {
+		return password;
 	}
-
-	public void setPw(String pw) {
-		this.pw = pw;
+	public void setPassword(String password) {
+		this.password = password;
 	}
-
+	public String getUser_name() {
+		return user_name;
+	}
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
 	public String getNick_name() {
 		return nick_name;
 	}
-
 	public void setNick_name(String nick_name) {
 		this.nick_name = nick_name;
 	}
-
-	public int getUser_level() {
-		return user_level;
-	}
-
-	public void setUser_level(int user_level) {
-		this.user_level = user_level;
-	}
-
-	public int getUser_exp() {
-		return user_exp;
-	}
-
-	public void setUser_exp(int user_exp) {
-		this.user_exp = user_exp;
-	}
-
-	public int getAccess_count() {
+	public String getAccess_count() {
 		return access_count;
 	}
-
-	public void setAccess_count(int access_count) {
+	public void setAccess_count(String access_count) {
 		this.access_count = access_count;
 	}
-
-	public int getMember_point() {
-		return member_point;
+	public int getLevel() {
+		return level;
 	}
-
-	public void setMember_point(int member_point) {
-		this.member_point = member_point;
+	public void setLevel(int level) {
+		this.level = level;
 	}
-
-	public Date getIsrt_time() {
-		return isrt_time;
+	public long getPoint() {
+		return point;
 	}
-
-	public void setIsrt_time(Date isrt_time) {
-		this.isrt_time = isrt_time;
+	public void setPoint(long point) {
+		this.point = point;
 	}
-
-	public Date getLast_updt_time() {
-		return last_updt_time;
+	public Date getInsert_date() {
+		return insert_date;
 	}
-
-	public void setLast_updt_time(Date last_updt_time) {
-		this.last_updt_time = last_updt_time;
+	public void setInsert_date(Date insert_date) {
+		this.insert_date = insert_date;
 	}
-
+	public Date getDrop_out_date() {
+		return drop_out_date;
+	}
+	public void setDrop_out_date(Date drop_out_date) {
+		this.drop_out_date = drop_out_date;
+	}
+	public Date getLast_update_date() {
+		return last_update_date;
+	}
+	public void setLast_update_date(Date last_update_date) {
+		this.last_update_date = last_update_date;
+	}
 	public String getEmail() {
 		return email;
 	}
-
 	public void setEmail(String email) {
 		this.email = email;
 	}
-
-	public String getSts() {
-		return sts;
+	public char getMember_status() {
+		return member_status;
 	}
-
-	public void setSts(String sts) {
-		this.sts = sts;
+	public void setMember_status(char member_status) {
+		this.member_status = member_status;
 	}
-
-	@Override
-	public String toString() {
-		return "MemberVo [member_seq=" + member_seq + ", id=" + id + ", pw=" + pw + ", nick_name=" + nick_name
-				+ ", user_level=" + user_level + ", user_exp=" + user_exp + ", access_count=" + access_count
-				+ ", member_point=" + member_point + ", isrt_time=" + isrt_time + ", last_updt_time=" + last_updt_time
-				+ ", email=" + email + ", sts=" + sts + "]";
+	public char getProfile_open_yn() {
+		return profile_open_yn;
 	}
-
+	public void setProfile_open_yn(char profile_open_yn) {
+		this.profile_open_yn = profile_open_yn;
+	}
+	public String getPhone_num() {
+		return phone_num;
+	}
+	public void setPhone_num(String phone_num) {
+		this.phone_num = phone_num;
+	}
+	public String getAddress() {
+		return address;
+	}
+	public void setAddress(String address) {
+		this.address = address;
+	}
+	public char getBirth() {
+		return birth;
+	}
+	public void setBirth(char birth) {
+		this.birth = birth;
+	}
+	public char getSex() {
+		return sex;
+	}
+	public void setSex(char sex) {
+		this.sex = sex;
+	}
+	public String getNationality() {
+		return nationality;
+	}
+	public void setNationality(String nationality) {
+		this.nationality = nationality;
+	}
+	public String getLive_nationality() {
+		return live_nationality;
+	}
+	public void setLive_nationality(String live_nationality) {
+		this.live_nationality = live_nationality;
+	}
+	public String getCity() {
+		return city;
+	}
+	public void setCity(String city) {
+		this.city = city;
+	}
+	public String getJob() {
+		return job;
+	}
+	public void setJob(String job) {
+		this.job = job;
+	}
+	public String getReligion() {
+		return religion;
+	}
+	public void setReligion(String religion) {
+		this.religion = religion;
+	}
+	public String getIntroduction() {
+		return introduction;
+	}
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
+	}
+	  
+	  
+	  
 }
+
+

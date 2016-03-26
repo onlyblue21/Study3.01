@@ -99,7 +99,7 @@ public class MainController {
 		_login = memberservice.Login(membervo);
 		System.out.println("_login = " + _login);
 		System.out.println("mainvoid = " + membervo.getId());
-		System.out.println("mainvopw = " + membervo.getPw());
+		System.out.println("mainvopw = " + membervo.getPassword());
 		if (_login) {
 			System.out.println("LOGIN 성공");
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");

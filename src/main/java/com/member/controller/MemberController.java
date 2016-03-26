@@ -30,11 +30,7 @@ public class MemberController {
 		
 		if(!membervo.getId().equals(null) || !membervo.getId().equals("") ){
 			int firstvalue=0;
-			membervo.setUser_level(firstvalue);
-			membervo.setUser_exp(firstvalue);
-			membervo.setAccess_count(firstvalue);
-			membervo.setMember_point(firstvalue);
-			membervo.setSts("");
+			
 			
 			memberservice.memberjoin(membervo);
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");

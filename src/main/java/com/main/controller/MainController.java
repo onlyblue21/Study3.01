@@ -14,7 +14,6 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.member.dao.MemberDao;
 import com.member.service.MemberService;
 import com.member.vo.MemberVo;
 
@@ -45,7 +44,7 @@ public class MainController {
 		StringTokenizer st = new StringTokenizer(localhost,"/");
 		String host = st.nextToken();
 		String ip = st.nextToken(host);
-		
+		System.out.println("ip = " + ip);
 		String clientIp = request.getHeader("HTTP_X_FORWARDED_FOR");
 		
 		if(null == clientIp || clientIp.length() == 0  || clientIp.toLowerCase().equals("unknown")){

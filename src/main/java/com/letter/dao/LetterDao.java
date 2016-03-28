@@ -1,6 +1,8 @@
 package com.letter.dao;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,5 +17,17 @@ public class LetterDao {
 	
 	public ArrayList<LetterVo> letterList(){
 		return (ArrayList)sqlSession.selectList("letterList");
+	}
+	
+	public ArrayList<LetterVo> letterList(Map<String, String> key){
+		return (ArrayList)sqlSession.selectList("letterList", key);
+	}
+	
+	public int letterWrite(LetterVo vo){
+		return sqlSession.insert("letterWrite", vo);
+	}
+	
+	public LetterVo letterSelect(int seq){
+		return sqlSession.selectOne("seq");
 	}
 }

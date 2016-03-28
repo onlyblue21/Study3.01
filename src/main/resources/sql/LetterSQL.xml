@@ -5,6 +5,19 @@
 	<!-- 쪽지 리스트 조회 -->
 	<select id="letterList" resultType="Letter">
 		SELECT * FROM LETTER
+		<where>
+			<if test="value != '' ">
+            	${type} like #{value}
+            </if>
+		</where>
 	</select>
-
+	<insert id="letterWrite" parameterType="Letter">
+		<![CDATA[
+			INSERT INTO LETTER (recipient_seq, sender_seq, content, insert_date, check_yn, del_yn) 
+			values(#{recipient_seq},#{sender_seq},#{content},now(),"N","N")
+		]]>
+	</insert>
+	<select id="letterSelect" parameterType="int" resultType="Letter">
+		SELECT * FROM LETTER WHERE LETTER_SEQ=#{letter_seq}
+	</select>
 </mapper>

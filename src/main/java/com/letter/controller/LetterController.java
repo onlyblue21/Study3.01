@@ -1,23 +1,30 @@
 package com.letter.controller;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.ArrayList;
+
+import javax.annotation.Resource;
+
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.letter.service.LetterService;
 import com.letter.vo.LetterVo;
 
 @Controller
-@RequestMapping(value="/letter")
 public class LetterController {
-	@Autowired
-	private LetterService letterService;
 	
-	@RequestMapping(value="/")
-	public String selectLetterList(LetterVo letterVo, Model model){
-		model.addAttribute("letterList", letterService.selectLetterList());
+	@Resource(name="LetterService")
+	private LetterService letterService;
+	 
+	@RequestMapping(value="/letter")
+	public ModelAndView letter(ModelAndView mav) throws Exception{
+		ArrayList <LetterVo>letterList = new ArrayList<LetterVo>();
+		System.out.println("/letter controller");
+		letterList = letterService.letterList();
+		mav.addObject("letterList", letterList);
+		mav.setViewName("letter/Letter");
 		
-		return "/letter/LetterListR";
+		return mav;
 	}
 }

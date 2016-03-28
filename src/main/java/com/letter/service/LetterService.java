@@ -1,20 +1,11 @@
 package com.letter.service;
 
-import java.util.List;
+import java.util.ArrayList;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import com.letter.vo.LetterVo;;
 
-import com.letter.dao.LetterDao;
-import com.letter.vo.LetterVo;
+public interface LetterService {
 
-@Service
-public class LetterService {
+	public ArrayList<LetterVo> letterList() throws Exception;
 	
-	@Autowired
-	private LetterDao letterDao;
-	
-	public List<LetterVo> selectLetterList(){
-		return letterDao.selectLetterList();
-	}
 }

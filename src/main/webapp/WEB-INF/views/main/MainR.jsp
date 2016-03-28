@@ -32,7 +32,7 @@
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<div class="listItem1">
 		<div class="col" style="float: left">
-			<a href="/letter/">쪽지조회</a>
+			<a href="/letter">쪽지조회</a>
 			<!-- 테스트 -->
 <!-- 			<h2>공지사항</h2> -->
 

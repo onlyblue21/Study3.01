@@ -1,5 +1,7 @@
 package com.member.controller;
 
+import java.util.Properties;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Controller;
@@ -31,7 +33,6 @@ public class MemberController {
 		if(!membervo.getId().equals(null) || !membervo.getId().equals("") ){
 			int firstvalue=0;
 			
-			
 			memberservice.memberjoin(membervo);
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
 			model.addAttribute("LoginResult","SUCCESS");
@@ -40,4 +41,48 @@ public class MemberController {
 		}
 		return "/main/MainR";
 	}
+	
+	@RequestMapping(value="/passwordmail", method = RequestMethod.POST)
+	public String passwordmail(Model model, MemberVo membervo)throws Exception{
+		
+		String from ="onlyblue21@gmail.com";
+		String to="onlyblue21@naver.com";
+		String notice="";
+		
+		final String fromEmail="onlyblue21@gmail.com";
+		final String password="rlatjdanr26";
+		
+		Properties per = new Properties();
+		
+		per.put("mail.transport", "smtp");
+		per.put("mail.smtp.host", "smtp.gmail.com");
+		per.put("mail.smtp.port", "465");
+		per.put("mail.smtp.starttls.enable","true");
+		per.put("mail.smtp.socketFactory.class", "javax.net.ssl.SSLSocketFactory");
+		per.put("mail.smtp.user", "from");
+		per.put("mail.smtp.auth", "true");
+		
+//		Authenticator auth = new SmtpGmail(fromEmail, password);
+//		Session mailSession = Session.getDefaultlnstance(per.auth);
+		
+		try{
+			
+//			MimeMessage ms = new MimeMessage(mailSession);
+//			ms.setFrom(new InternetAddress(from));
+//			ms.setSubject("제목");
+//			ms.setSentDate(new Date());
+//			Transport.send(ms);
+			
+			notice ="전송완료";
+		}catch(Exception e){
+			notice="전송오류:" + e.toString(); 
+		}
+		System.out.println(notice);
+		
+		return "";
+	}
+	
+
+
+	
 }

@@ -1,5 +1,7 @@
 package com.member.controller;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Properties;
 
 import javax.annotation.Resource;
@@ -31,8 +33,12 @@ public class MemberController {
 	public String memberjoin_j(Model model, MemberVo membervo) throws Exception{
 		
 		if(!membervo.getId().equals(null) || !membervo.getId().equals("") ){
-			int firstvalue=0;
-			
+			long time = System.currentTimeMillis();
+		    SimpleDateFormat ctime = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+		    String CurrentTime = ctime.format(new Date(time));
+		    
+		    System.out.println("CurrentTime = " + CurrentTime);
+		    
 			memberservice.memberjoin(membervo);
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
 			model.addAttribute("LoginResult","SUCCESS");

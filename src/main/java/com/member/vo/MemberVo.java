@@ -10,17 +10,17 @@ public class MemberVo {
 	  private String user_name;
 	  private String nick_name;
 	  private String access_count;
-	  private int level;
-	  private long point;
-	  private Date insert_date;
+	  private int level = 1;
+	  private long point = 0;
+	  private Date insert_date ;
 	  private Date drop_out_date;
 	  private Date last_update_date;
 	  private String email;
-	  private char member_status;
+	  private String member_status = "M001";
 	  private char profile_open_yn;
 	  private String phone_num;
 	  private String address;
-	  private char birth;
+	  private String birth;
 	  private char sex;
 	  private String nationality;
 	  private String live_nationality;
@@ -101,10 +101,10 @@ public class MemberVo {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public char getMember_status() {
+	public String getMember_status() {
 		return member_status;
 	}
-	public void setMember_status(char member_status) {
+	public void setMember_status(String member_status) {
 		this.member_status = member_status;
 	}
 	public char getProfile_open_yn() {
@@ -125,10 +125,10 @@ public class MemberVo {
 	public void setAddress(String address) {
 		this.address = address;
 	}
-	public char getBirth() {
+	public String getBirth() {
 		return birth;
 	}
-	public void setBirth(char birth) {
+	public void setBirth(String birth) {
 		this.birth = birth;
 	}
 	public char getSex() {

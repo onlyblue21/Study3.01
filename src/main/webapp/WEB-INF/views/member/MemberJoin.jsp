@@ -17,10 +17,10 @@ test = ${test}
 <form name="memberjoin" action="/memberjoin_j" method="post" onsubmit="return joinvalidate(this);">
 		<table>
 			<tr>
-				<td>id : <input type="text" name="id" value="" /></td>
+				<td>아이디 : <input type="text" name="id" value="" /></td>
 			</tr>
 			<tr>
-				<td>pw : <input type="password" name="pw" value="" /></td>
+				<td>비밀번호 : <input type="password" name="pw" value="" /></td>
 			</tr>
 			<tr>
 				<td>이름: <input type="text" name="user_name" value="" /></td>
@@ -38,10 +38,16 @@ test = ${test}
 				<td>address : <input type="text" name="address" value="" /></td>
 			</tr>
 			<tr>
+				<td>생년 월일 : <input type="text" name="birth" value=""/></td>
+			</tr>
+			<tr>
+				<td>예) 911022</td>
+			</tr>
+			<tr>
 				<td>
 					<p>
-						성별: <input type="radio" name="sex" value="man">남자 <input
-							type="radio" name="sex" value="woman">여자
+						성별: <input type="radio" name="sex" value="M">
+						남자: <input type="radio" name="sex" value="F">여자
 					</p>
 				</td>
 			</tr>
@@ -49,8 +55,17 @@ test = ${test}
 				<td>프로필 사진 :</td>
 			</tr>
 			<tr>
-				<td>국적 : <select name="city"><option value="korea">한국</option>
-						<option value="japan">일본</option></select></td>
+				<td>국적 :  <select name="live_nationality">
+								<option value="korea">한국</option>
+								<option value="japan">일본</option>
+						   </select>
+				</td>
+			</tr>
+			<tr>
+				<td>거주지역 : <select name="city">
+								<option value="korea">한국</option>
+								<option value="japan">일본</option>
+							</select></td>
 			</tr>
 			<tr>
 				<td>직업 : <select name="job"><option value="0">개발자</option>

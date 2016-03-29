@@ -60,7 +60,7 @@ function joinvalidate() {
 	}
 	
 	if (!document.memberjoin.nick_name.value) {
-		alert("pw를 입력하세요.");
+		alert("nick_name을 입력하세요.");
 		document.memberjoin.nick_name.focus();
 		return false;
 	}

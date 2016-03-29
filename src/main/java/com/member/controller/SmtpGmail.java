@@ -8,8 +8,8 @@ public class SmtpGmail extends Authenticator {
 	
 	@Override
 	protected PasswordAuthentication getPasswordAuthentication(){
-		String user = "onlyblue21@gmail.com";
-		String pw ="rlatjdanr26";
+		String user = "@gmail.com";
+		String pw ="";
 		
 		return new PasswordAuthentication(user,pw);
 		

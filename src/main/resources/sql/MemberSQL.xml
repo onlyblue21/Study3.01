@@ -39,7 +39,6 @@
 						   ,LAST_UPDATE_DATE       
 						   ,EMAIL       
 						   ,MEMBER_STATUS       
-						  
 						   ,PHONE_NUM       
 						   ,ADDRESS       
 						   ,BIRTH       
@@ -63,7 +62,6 @@
 						   ,NOW()
 						   ,#{email}       
 						   ,#{member_status}
-						 
 						   ,#{phone_num}     
 						   ,#{address}
 						   ,#{birth}
@@ -74,10 +72,6 @@
 						   ,#{job}     
 						   ,#{religion}      
 						   ,#{introduction}  )
-   
-   
-   
-   
    
 	]]>
 	</insert>

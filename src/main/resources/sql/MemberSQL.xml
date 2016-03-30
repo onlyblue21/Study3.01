@@ -39,7 +39,7 @@
 						   ,LAST_UPDATE_DATE       
 						   ,EMAIL       
 						   ,MEMBER_STATUS       
-						   ,PROFILE_OPEN_YN   
+						  
 						   ,PHONE_NUM       
 						   ,ADDRESS       
 						   ,BIRTH       
@@ -63,7 +63,7 @@
 						   ,NOW()
 						   ,#{email}       
 						   ,#{member_status}
-						   ,#{profile_open_yn}
+						 
 						   ,#{phone_num}     
 						   ,#{address}
 						   ,#{birth}

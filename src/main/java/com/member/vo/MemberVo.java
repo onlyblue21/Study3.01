@@ -17,7 +17,7 @@ public class MemberVo {
 	  private Date last_update_date;
 	  private String email;
 	  private String member_status = "M001";
-	  private char profile_open_yn;
+	  private char profile_open_yn ='N';
 	  private String phone_num;
 	  private String address;
 	  private String birth;

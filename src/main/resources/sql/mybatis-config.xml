@@ -14,7 +14,6 @@
 	<typeAliases>
 		<typeAlias type="com.member.vo.MemberVo"	 	alias="Member"/>
 		<typeAlias type="com.letter.vo.LetterVo"	 	alias="Letter"/>
-		<typeAlias type="com.profile.vo.ProfileVo"	 	alias="Profile"/>
 	</typeAliases>
 
 
@@ -22,6 +21,5 @@
 	<mappers>
 		<mapper resource="sql/MemberSQL.xml"/>
 		<mapper resource="sql/LetterSQL.xml"/>
-		<mapper resource="sql/ProfileSQL.xml"/>
 	</mappers>
 </configuration>

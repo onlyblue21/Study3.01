@@ -9,7 +9,7 @@ public class MemberVo {
 	  private String password;
 	  private String user_name;
 	  private String nick_name;
-	  private String access_count;
+	  private String access_count = "1";
 	  private int level = 1;
 	  private long point = 0;
 	  private Date insert_date ;

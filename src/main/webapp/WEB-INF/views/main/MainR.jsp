@@ -182,7 +182,7 @@
 											</tr>
 											<tr>
 												<td>
-													<input type="button" title="프로필 생성" value="프로필 생성" onclick="profile();"> <br>
+													<input type="button" title="MY PAGE" value="MY PAGE" onclick="profile();"> <br>
 													<!-- <a href="#" title="회원가입">회원가입</a>&nbsp;&nbsp;  -->
 													<!-- <a href="#" title="ID/PW찾기">ID/PW 찾기</a> --> 
 												</td>
@@ -193,19 +193,19 @@
 											<td>아이디 : <input type="text" name="id" title="아이디" value="" /></td>
 										</tr>
 										<tr>
-											<td>pw : <input type="password" name="pw" title="비밀번호" value="" /></td>
+											<td>pw : <input type="password" name="password" title="비밀번호" value="" /></td>
 										</tr>
+										<tr>
+											<td> 
+												<input type="submit" value="로그인" title="로그인" /> 
+							     				<input type="button" value="회원가입" title="회원가입" onclick="memberJoin();"> 
+											</td>
+									</tr>
 									</c:otherwise>
 								</c:choose>
 								</td>
 							</tr>
-						<tr>
-							<td>
-								 <input type="submit" value="로그인" title="로그인" /> 
-							     <input type="button" value="회원가입" title="회원가입" onclick="memberJoin();"> 
-							
-								</td>
-						</tr>
+						
 					</table>
 				</form>
 			</div>

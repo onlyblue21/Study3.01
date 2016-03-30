@@ -20,7 +20,7 @@ test = ${test}
 				<td>아이디 : <input type="text" name="id" value="" /></td>
 			</tr>
 			<tr>
-				<td>비밀번호 : <input type="password" name="pw" value="" /></td>
+				<td>비밀번호 : <input type="password" name="password" value="" /></td>
 			</tr>
 			<tr>
 				<td>이름: <input type="text" name="user_name" value="" /></td>

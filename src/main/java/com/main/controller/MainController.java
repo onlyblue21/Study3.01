@@ -115,5 +115,6 @@ public class MainController {
 
 		return "/main/MainR";
 	}
-//충돌테스트
+	//충돌테스트KIM
+	//KIM
 }

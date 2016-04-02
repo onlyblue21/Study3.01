@@ -26,7 +26,7 @@ public class MainController {
 	@Resource(name="MemberService")
 	public MemberService memberservice; 
 	
-	
+	 
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
@@ -115,5 +115,5 @@ public class MainController {
 
 		return "/main/MainR";
 	}
-
+//충돌테스트
 }

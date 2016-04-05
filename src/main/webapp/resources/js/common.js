@@ -7,6 +7,7 @@ var _ajax = function(type,url,dataType,data,success,beforeSend,complete,error){
 		success:success,
 		error:error,
 		beforeSend:beforeSend,
-		complete:complete
+		complete:complete,
+		contentType : 'application/json;charset=UTF-8'
 	});
 };

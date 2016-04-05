@@ -1,19 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="letter">
-	
+
 	<!-- 쪽지 리스트 조회 -->
 	<select id="letterList" resultType="Letter">
 		SELECT * FROM LETTER
-		<where>
-			<if test="value != '' ">
-            	${type} like #{value}
-            </if>
-		</where>
+	</select>
+	<select id="letterListSearch"  resultType="hashmap">
+		SELECT A.LETTER_SEQ, B.ID, A.CONTENT, A.INSERT_DATE, A.CHECK_YN
+		FROM LETTER A INNER JOIN MEMBER B ON A.RECIPIENT_SEQ = B.MEMBER_SEQ
+		<if test="value != ''">
+			<where>
+				${type} like #{value}
+	        </where>
+	    </if>    
 	</select>
 	<insert id="letterWrite" parameterType="Letter">
 		<![CDATA[
-			INSERT INTO LETTER (recipient_seq, sender_seq, content, insert_date, check_yn, del_yn) 
+			INSERT INTO LETTER (recipient_seq, sender_seq, content, insert_date, check_yn, del_yn)
 			values(#{recipient_seq},#{sender_seq},#{content},now(),"N","N")
 		]]>
 	</insert>

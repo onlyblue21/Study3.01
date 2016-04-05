@@ -7,9 +7,9 @@ public class LetterVo {
 	private String recipient_seq;
 	private String sender_seq;
 	private String content;
-	private Date insert_date;
+	private String insert_date;
 	private String check_yn;
-	private Date check_date;
+	private String check_date;
 	private String del_yn;
 	
 	public LetterVo() {
@@ -49,11 +49,11 @@ public class LetterVo {
 		this.content = content;
 	}
 
-	public Date getInsert_date() {
+	public String getInsert_date() {
 		return insert_date;
 	}
 
-	public void setInsert_date(Date insert_date) {
+	public void setInsert_date(String insert_date) {
 		this.insert_date = insert_date;
 	}
 
@@ -65,11 +65,11 @@ public class LetterVo {
 		this.check_yn = check_yn;
 	}
 
-	public Date getCheck_date() {
+	public String getCheck_date() {
 		return check_date;
 	}
 
-	public void setCheck_date(Date check_date) {
+	public void setCheck_date(String check_date) {
 		this.check_date = check_date;
 	}
 
@@ -79,6 +79,13 @@ public class LetterVo {
 
 	public void setDel_yn(String del_yn) {
 		this.del_yn = del_yn;
+	}
+
+	@Override
+	public String toString() {
+		return " {letter_seq:" + letter_seq + ", recipient_seq:" + recipient_seq + ", sender_seq:" + sender_seq
+				+ ", content:" + content + ", insert_date:" + insert_date + ", check_yn:" + check_yn + ", check_date:"
+				+ check_date + ", del_yn:" + del_yn + "}";
 	}
 
 	

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="AdminMemberDao">
+
+		<!-- 건수 -->
+	<select id="countCheck" parameterType="Member" resultType="int">
+	<![CDATA[
+		SELECT 
+				COUNT(1) 
+		FROM 
+				MEMBER 
+				]]>
+	</select>
+	
+		<!-- 회원 리스트 조회 -->
+	<select id="memberList" resultType="Member">
+		SELECT 
+				ID
+				,USER_NAME
+				,NICK_NAME
+				,EMAIL
+				,SEX
+		FROM MEMBER
+		<where>
+		<if test="value != null or type != null">
+			<if test="type != 'ALL'">
+				${type} = #{value}
+			</if>
+		</if>
+		</where>
+	</select>
+</mapper>

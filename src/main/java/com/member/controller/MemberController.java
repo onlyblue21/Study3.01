@@ -31,6 +31,8 @@ public class MemberController {
 	
 	@RequestMapping(value = "/memberjoin_j", method = RequestMethod.POST)
 	public String memberjoin_j(Model model, MemberVo membervo) throws Exception{
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+		//test
 		
 		if(!membervo.getId().equals(null) || !membervo.getId().equals("") ){
 			long time = System.currentTimeMillis();
@@ -39,12 +41,18 @@ public class MemberController {
 		    
 		    System.out.println("CurrentTime = " + CurrentTime);
 		    
-			memberservice.memberjoin(membervo);
+		    System.out.println("파일PATH = "  + membervo.getNationality());
+		    
+//			memberservice.memberjoin(membervo);
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
 			model.addAttribute("LoginResult","SUCCESS");
 			System.out.println("회원가입 완료!");
+		}else{
 			
+			System.out.println("id가 널일경우");
 		}
+		
+		
 		return "/main/MainR";
 	}
 	

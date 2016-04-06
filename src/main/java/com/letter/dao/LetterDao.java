@@ -1,7 +1,6 @@
 package com.letter.dao;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -19,8 +18,8 @@ public class LetterDao {
 		return (ArrayList)sqlSession.selectList("letterList");
 	}
 	
-	public ArrayList<LetterVo> letterList(Map<String, String> key){
-		return (ArrayList)sqlSession.selectList("letterList", key);
+	public ArrayList letterList(Map<String, String> key){
+		return (ArrayList)sqlSession.selectList("letterListSearch", key);
 	}
 	
 	public int letterWrite(LetterVo vo){

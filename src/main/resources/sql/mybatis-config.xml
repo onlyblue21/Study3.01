@@ -23,5 +23,6 @@
 		<mapper resource="sql/MemberSQL.xml"/>
 		<mapper resource="sql/LetterSQL.xml"/>
 		<mapper resource="sql/UsedTradeSQL.xml"/>
+		<mapper resource="sql/AdminMemberSQL.xml"/>
 	</mappers>
 </configuration>

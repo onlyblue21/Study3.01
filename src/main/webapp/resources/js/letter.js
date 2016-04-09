@@ -1,25 +1,35 @@
-/*var search = {
-		searchType:"",
-		searchValue:""
-};
-
-function letterList(){
-	var success=function(json){
-		console.log(json.size);
-
+function letterList($name){
+	var data=new Object();
+	data.type=$("#searchType").val();
+	data.value=$("#searchValue").val();
+	var param =JSON.stringify(data);
+	console.log(param);
+	
+	var success = function(json){
+		console.log(json);
 		if(json.size>0){
-			console.log(json);
+			$name.clearGridData();
+			$name.jqGrid({
+		
+		    datatype: "local",
+			height: 250,
+			colNames:['번호','보낸사람ID', '내용', '받은시각','확인'],
+			colModel:[
+			          {name:'LETTER_SEQ'},
+			          {name:'ID'},
+			          {name:'CONTENT'},
+			          {name:'INSERT_DATE'},
+			          {name:'CHECK_YN'}     
+			          ],
+			         caption: "LETTER 목록"
+			        });
+			for(var i=0;i<json.size;i++){
+				$name.jqGrid('addRowData',i+1,json.data[i]);
+			}
 		}
 	}
-	_ajax("post","/letterList","json",data,success);
+	
+	_ajax("post","/letterListSearch","json",param,success);
 }
 
-function letterList(data){
-	var success=function(json){
-		if(json.size>0){
-			console.log(json);
-		}
-	}
-	console.log(data);
-	_ajax("post","/letterList","json",data,success);
-}*/
+

@@ -15,47 +15,12 @@
 <jsp:include page="LetterLefter.jsp" />
 <script type="text/javascript">
 	$(function() {
-		letterList();
-	
+		letterList($("#letterList"));
+
 		$("#search").on("click",function() {
-			letterList();
+			letterList($("#letterList"));
 		});
-		function letterList(){
-			var data=new Object();
-			data.type=$("#searchType").val();
-			data.value=$("#searchValue").val();
-//			console.log(data);
-			var param =JSON.stringify(data);
-			var success=function(json){
-				if(json.size>0){
-						$("#letterList").clearGridData();
-				        $("#letterList").jqGrid({
-				            //로컬그리드이용
-				            datatype: "local",
-				            //그리드 높이
-				            height: 250,
-				            //컬럼명들
-				            colNames:['번호','보낸사람ID', '내용', '받은시각','확인'],
-				            //컬럼모델
-				            colModel:[
-				                {name:'LETTER_SEQ'},
-				                {name:'ID'},
-				                {name:'CONTENT'},
-				                {name:'INSERT_DATE'},
-				                {name:'CHECK_YN'}     
-				            ],
-				            //그리드타이틀
-				            caption: "LETTER 목록"
-				        });
-				        // 스크립트 변수에 담겨있는 json데이터의 길이만큼 
-				        for(var i=0;i<json.size;i++){
-				                //jqgrid의 addRowData를 이용하여 각각의 row에 gridData변수의 데이터를 add한다
-				        	$("#letterList").jqGrid('addRowData',i+1,json.data[i]);
-				        }
-				}
-			}
-			_ajax("post","/letterListSearch","json",param,success);
-		}
+
 	});
 </script>	
 	<div id="searchWrapper">

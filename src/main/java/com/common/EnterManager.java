@@ -20,7 +20,7 @@ public class EnterManager {
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public String home(Model model, HttpServletRequest request) throws Exception {
-		org.apache.ibatis.logging.LogFactory.useLog4JLogging();
+		//org.apache.ibatis.logging.LogFactory.useLog4JLogging();
 		Localhostcheck(request);
 		
 		// TODO 로그인 체크

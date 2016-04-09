@@ -178,13 +178,11 @@
 								<c:choose>
 									<c:when test="${LoginResult == 'SUCCESS'}">
 											<tr>
-												<td>test = ${test} 로그인 여부  = ${LOGIN_RESULT}</td>
+												<td>${LOGIN_RESULT}</td>
 											</tr>
 											<tr>
 												<td>
 													<input type="button" title="MY PAGE" value="MY PAGE" onclick="profile();"> <br>
-													<!-- <a href="#" title="회원가입">회원가입</a>&nbsp;&nbsp;  -->
-													<!-- <a href="#" title="ID/PW찾기">ID/PW 찾기</a> --> 
 												</td>
 											</tr>
 											<tr>
@@ -204,6 +202,8 @@
 											<td> 
 												<input type="submit" value="로그인" title="로그인" /> 
 							     				<input type="button" value="회원가입" title="회원가입" onclick="memberJoin();"> 
+												<a href="#" title="회원가입">회원가입</a>&nbsp;&nbsp;
+												<a href="#" title="ID/PW찾기">ID/PW 찾기</a> 
 											</td>
 									</tr>
 									</c:otherwise>

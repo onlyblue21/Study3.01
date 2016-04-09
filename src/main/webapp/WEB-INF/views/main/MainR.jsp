@@ -26,7 +26,7 @@
 		}
 	}
 </script>
-<title>메인화면</title>
+<title>Welcome!</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -171,7 +171,7 @@
 
 		<div class="left">
 			<div class="login">
-				<form name="mainfrm" action="/login" method="post">
+				<form name="mainfrm" action="/main/login" method="post">
 					<table>
 						<tr>
 							<td>

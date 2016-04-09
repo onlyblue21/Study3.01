@@ -43,7 +43,7 @@ public class MemberController {
 		    
 		    System.out.println("파일PATH = "  + membervo.getNationality());
 		    
-//			memberservice.memberjoin(membervo);
+			memberservice.memberjoin(membervo);
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
 			model.addAttribute("LoginResult","SUCCESS");
 			System.out.println("회원가입 완료!");

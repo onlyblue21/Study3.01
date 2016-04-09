@@ -75,10 +75,10 @@ function joinvalidate() {
 }
 
 //logout
-function Logout() {
-	var Listfrm = document.Listfrm;
-	Listfrm.action = "/Logout";
-	Listfrm.submit();
+function logout() {
+	var mainfrm = document.mainfrm;
+	mainfrm.action = "/logout";
+	mainfrm.submit();
 }
 
 function addContent() {

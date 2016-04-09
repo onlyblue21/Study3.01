@@ -14,7 +14,8 @@
 회원 가입 화면
 </h1>
 test = ${test}
-<form name="memberjoin" action="/memberjoin_j" method="post" onsubmit="return joinvalidate(this);">
+<!-- enctype="multipart/form-data" -->
+<form name="memberjoin" action="/memberjoin_j" method="post" onsubmit="return joinvalidate(this);" >
 		<table>
 			<tr>
 				<td>아이디 : <input type="text" name="id" value="" /></td>
@@ -52,7 +53,9 @@ test = ${test}
 				</td>
 			</tr>
 			<tr>
-				<td>프로필 사진 :</td>
+				<td>프로필 사진 :
+					<input type="file" name="upload"/>
+				</td>
 			</tr>
 			<tr>
 				<td>국적 :  <select name="live_nationality">
@@ -80,10 +83,8 @@ test = ${test}
 				<td>자기 소개란 :</td>
 				<td><textarea rows="5" cols="30" name="introduction"></textarea></td>
 			</tr>
-
 		</table>
 		<input type="submit" value="등록완료">
 	</form>
-
 </body>
 </html>

@@ -187,6 +187,11 @@
 													<!-- <a href="#" title="ID/PW찾기">ID/PW 찾기</a> --> 
 												</td>
 											</tr>
+											<tr>
+												<td>
+													<input type="button" title="logout" onclick="logout()"/>
+												</td>
+											</tr>
 									</c:when>
 									<c:otherwise>
 										<tr>

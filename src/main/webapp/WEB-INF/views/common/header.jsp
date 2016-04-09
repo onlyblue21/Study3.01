@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header>
-	<h1><strong>Main!</strong></h1>
+	<h1><strong>KnJ</strong></h1>
 	<div>
 		<input type="text" title="검색어"/>
 		<input type="submit" value="검색"/>

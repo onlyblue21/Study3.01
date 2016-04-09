@@ -9,6 +9,7 @@ import java.util.StringTokenizer;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,57 +22,26 @@ import com.member.vo.MemberVo;
  * Handles requests for the application home page.
  */
 @Controller
+@RequestMapping("/main")
 public class MainController {
 
 	@Resource(name="MemberService")
 	public MemberService memberservice; 
 	
-	 
-	/**
-	 * Simply selects the home view to render by returning its name.
-	 */
-	//ip관련
-	private void Localhostcheck(HttpServletRequest request) throws Exception{
-		
-		//외부 ip주소 받아오는것
-/*		String localhost = InetAddress.getLocalHost().toString();
-		InetAddress[] iaArr = InetAddress.getAllByName("study.iptime.org");
-		for(InetAddress remote : iaArr){
-			System.out.println("www.naver.com IP 주소 : " + remote.getHostAddress());
-		}*/
-		
-		String localhost = InetAddress.getLocalHost().toString();
-		StringTokenizer st = new StringTokenizer(localhost,"/");
-		String host = st.nextToken();
-		String ip = st.nextToken(host);
-		System.out.println("ip = " + ip);
-		String clientIp = request.getHeader("HTTP_X_FORWARDED_FOR");
-		
-		if(null == clientIp || clientIp.length() == 0  || clientIp.toLowerCase().equals("unknown")){
-		  clientIp = request.getHeader("REMOTE_ADDR");
-		 
-		  if(null == clientIp || clientIp.length() == 0  || clientIp.toLowerCase().equals("unknown")){
-			  clientIp = request.getRemoteAddr();
-		  }
-		}
-		System.out.println("접속clientIp= " + clientIp);
-	}
+	public static Logger logger = Logger.getLogger(MainController.class.getName());
 	
-	
-	
-	@RequestMapping(value = "/main", method = RequestMethod.GET)
+	@RequestMapping(value = "", method = RequestMethod.GET)
 	public String home(Locale locale, Model model, MemberVo membervo,HttpServletRequest request) throws Exception {
-
-		// MessageSourceAccessor msa = new MessageSourceAccessor(null);
-		System.out.println("====================");
-		System.out.println("====================");
-
+		logger.fatal("log4j:logger.fatal()");
+		logger.error("log4j:logger.error()");
+		logger.warn("log4j:logger.warn()");
+		logger.info("log4j:logger.info()");
+		logger.debug("log4j:logger.debug()");
+		logger.trace("log4j:logger.trace()");
+		
 		Date date = new Date();
 		DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.LONG, DateFormat.LONG, locale);
-
-		Localhostcheck(request);
-			
-			
+	
 		String formattedDate = dateFormat.format(date);
 		String test = "main화면";
 
@@ -79,15 +49,6 @@ public class MainController {
 		model.addAttribute("test", test);
 
 		return "/main/MainR";
-	}
-
-	@RequestMapping(value = "/main", method = RequestMethod.POST)
-	public String main(Locale local, Model model) {
-		System.out.println("main");
-		String test = "main";
-		model.addAttribute("test", test);
-
-		return "/Main/Main";
 	}
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -115,8 +76,4 @@ public class MainController {
 
 		return "/main/MainR";
 	}
-	//충돌테스트KIM
-	//KIM
-	
-	// 충돌이닷!!!
 }

@@ -189,7 +189,7 @@
 											</tr>
 											<tr>
 												<td>
-													<input type="button" title="logout" onclick="logout()"/>
+													<input type="button" title="logout" value="로그 아웃" onclick="logout()"/>
 												</td>
 											</tr>
 									</c:when>

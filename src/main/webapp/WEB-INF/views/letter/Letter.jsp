@@ -5,8 +5,15 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>받은쪽지함</title>
+<link rel="stylesheet" href="resources/css/jquery-ui.css" type="text/css">
+<link rel="stylesheet" href="resources/css/ui.jqgrid.css" type="text/css">
+
 <script src="resources/js/jquery-1.12.1.js" type="text/javascript"></script>
+<script src="resources/js/jquery-ui.js" type="text/javascript"></script>
+<script src="resources/js/i18n/grid.locale-kr.js" type="text/javascript"></script>
 <script src="resources/js/jquery.jqGrid.js" type="text/javascript"></script>
+
+
 <script src="resources/js/common.js" type="text/javascript"></script>
 <script src="resources/js/letter.js" type="text/javascript"></script>
 
@@ -38,6 +45,8 @@
 	<div id="listWrapper">
 		<table id="letterList">
 		</table>
+		<div id="pager">
+		</div>
 	</div>
 </body>
 </html>

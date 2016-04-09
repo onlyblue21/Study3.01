@@ -23,7 +23,7 @@ public class EnterManager {
 		org.apache.ibatis.logging.LogFactory.useLog4JLogging();
 		Localhostcheck(request);
 		
-		// TODO ·Î±×ÀÎ Ã¼Å©
+		// TODO ë¡œê·¸ì¸ ì²´í¬
 		
 		return "/main/MainR";
 	}
@@ -31,14 +31,14 @@ public class EnterManager {
 	/**
 	 * Simply selects the home view to render by returning its name.
 	 */
-	//ip°ü·Ã
+	//ipê´€ë ¨
 	private void Localhostcheck(HttpServletRequest request) throws Exception{
 		
-		//¿ÜºÎ ipÁÖ¼Ò ¹Ş¾Æ¿À´Â°Í
+		//ì™¸ë¶€ ipì£¼ì†Œ ë°›ì•„ì˜¤ëŠ”ê²ƒ
 /*		String localhost = InetAddress.getLocalHost().toString();
 		InetAddress[] iaArr = InetAddress.getAllByName("study.iptime.org");
 		for(InetAddress remote : iaArr){
-			System.out.println("www.naver.com IP ÁÖ¼Ò : " + remote.getHostAddress());
+			System.out.println("www.naver.com IP ì£¼ì†Œ : " + remote.getHostAddress());
 		}*/
 		
 		String localhost = InetAddress.getLocalHost().toString();
@@ -55,6 +55,6 @@ public class EnterManager {
 			  clientIp = request.getRemoteAddr();
 		  }
 		}
-		System.out.println("Á¢¼ÓclientIp= " + clientIp);
+		System.out.println("ì ‘ì†clientIp= " + clientIp);
 	}
 }

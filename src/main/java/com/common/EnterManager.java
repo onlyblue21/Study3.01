@@ -40,7 +40,7 @@ public class EnterManager {
 		for(InetAddress remote : iaArr){
 			System.out.println("www.naver.com IP 주소 : " + remote.getHostAddress());
 		}*/
-		
+		 
 		String localhost = InetAddress.getLocalHost().toString();
 		StringTokenizer st = new StringTokenizer(localhost,"/");
 		String host = st.nextToken();

@@ -35,7 +35,6 @@
 						   ,LEVEL       
 						   ,POINT     
 						   ,INSERT_DATE  
-						   ,DROP_OUT_DATE
 						   ,LAST_UPDATE_DATE       
 						   ,EMAIL       
 						   ,MEMBER_STATUS       
@@ -43,7 +42,7 @@
 						   ,ADDRESS       
 						   ,BIRTH       
 						   ,SEX       
-						   ,NATIONALITY       
+						   ,FILEUPLOAD       
 						   ,LIVE_NATIONALITY     
 						   ,CITY       
 						   ,JOB       
@@ -58,7 +57,6 @@
 						   ,#{level}     
 						   ,#{point}       
 						   ,NOW()     
-						   ,NOW()    
 						   ,NOW()
 						   ,#{email}       
 						   ,#{member_status}
@@ -66,7 +64,7 @@
 						   ,#{address}
 						   ,#{birth}
 						   ,#{sex}  
-						   ,#{nationality}       
+						   ,#{fileupload}       
 						   ,#{live_nationality}
 						   ,#{city}   
 						   ,#{job}     

@@ -15,7 +15,7 @@
 </h1>
 test = ${test}
 <!-- enctype="multipart/form-data" -->
-<form name="memberjoin" action="/memberjoin_j" method="post" onsubmit="return joinvalidate(this);" >
+<form name="memberjoin" action="/memberjoin_j" method="post" onsubmit="return joinvalidate(this);" enctype="multipart/form-data" >
 		<table>
 			<tr>
 				<td>아이디 : <input type="text" name="id" value="" /></td>

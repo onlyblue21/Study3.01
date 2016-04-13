@@ -22,7 +22,7 @@ public class MemberVo {
 	  private String address;
 	  private String birth;
 	  private char sex;
-	  private String nationality;
+	  private String fileupload;
 	  private String live_nationality;
 	  private String city;
 	  private String job;
@@ -137,11 +137,11 @@ public class MemberVo {
 	public void setSex(char sex) {
 		this.sex = sex;
 	}
-	public String getNationality() {
-		return nationality;
+	public String getFileupload() {
+		return fileupload;
 	}
-	public void setNationality(String nationality) {
-		this.nationality = nationality;
+	public void setFileupload(String fileupload) {
+		this.fileupload = fileupload;
 	}
 	public String getLive_nationality() {
 		return live_nationality;
@@ -173,6 +173,7 @@ public class MemberVo {
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
+
 	  
 	  
 	  

@@ -8,7 +8,9 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
+
 
 
 import com.adminMember.service.AdminMemberService;
@@ -24,25 +26,33 @@ public class AdminMemberController {
 
 	
 	@RequestMapping(value="/adminMember")
-	public ModelAndView memberList(ModelAndView mav, HttpServletRequest req) throws Exception{
+	public ModelAndView memberList(ModelAndView mav, HttpServletRequest req,
+			@RequestParam(value="page", defaultValue="1")int page
+			) throws Exception{
 
 		List <MemberVo>memberList = new ArrayList<MemberVo>();
 		
-		int totalCount = adminmemberservice.countCheck(membervo);
-
 		String type=req.getParameter("searchType");
 		String value=req.getParameter("searchValue");
 		
-		System.out.println("회원정보페이지로이동! ");
-		System.out.println(totalCount);
+		System.out.println("�쉶�썝�젙蹂댄럹�씠吏�濡쒖씠�룞! ");
+
 		System.out.println("searchType "+ type);
 		System.out.println("searchValue "+ value);
+		System.out.println("page "+ page);
 
-		memberList = adminmemberservice.memberList(type,value);
+		memberList = adminmemberservice.memberList(type,value,page);
+		int totalCount = adminmemberservice.countCheck(type,value);
+		int lastPage = adminmemberservice.getLastPage(type,value);
 		
+		System.out.println(totalCount);
+		System.out.println(lastPage);
 		System.out.println(memberList);
 		
+		
 		mav.addObject("totalCount", totalCount);
+		mav.addObject("lastPage", lastPage);
+		mav.addObject("page", page);
 		mav.addObject("memberList", memberList);
 		
 		mav.setViewName("adminMember/AdminMemberList");

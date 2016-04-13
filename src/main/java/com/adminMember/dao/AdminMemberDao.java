@@ -8,6 +8,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import org.apache.ibatis.session.RowBounds;
+
+
 import com.member.vo.MemberVo;
 
 @Repository("AdminMemberDao")
@@ -16,9 +19,8 @@ public class AdminMemberDao {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	public int CountCheck(MemberVo membervo) throws Exception{
-		
-		return sqlSession.selectOne("countCheck", membervo);
+	public int CountCheck(Map<String, String> param) throws Exception{
+		return sqlSession.selectOne("countCheck", param);
 	}
 
 /*	
@@ -29,8 +31,11 @@ public class AdminMemberDao {
 	}
 */
 	
-	public List<MemberVo> memberList(Map<String, String> param){
+	public List<MemberVo> memberList(Map<String, Object> param){
+		
 		return sqlSession.selectList("memberList", param);
+		
+		
 	}
 	
 }

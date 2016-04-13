@@ -5,12 +5,17 @@
 
 		<!-- 건수 -->
 	<select id="countCheck" parameterType="Member" resultType="int">
-	<![CDATA[
 		SELECT 
 				COUNT(1) 
 		FROM 
 				MEMBER 
-				]]>
+		<where>
+		<if test="value != null or type != null">
+			<if test="type != 'ALL'">
+				${type} = #{value}
+			</if>
+		</if>
+		</where>
 	</select>
 	
 		<!-- 회원 리스트 조회 -->
@@ -29,5 +34,7 @@
 			</if>
 		</if>
 		</where>
+		order by id
+		LIMIT #{pageNavigator.startRow}, #{pageNavigator.linePerPage}
 	</select>
 </mapper>

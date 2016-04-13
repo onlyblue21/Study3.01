@@ -9,19 +9,24 @@ import org.springframework.stereotype.Service;
 
 import com.adminMember.dao.AdminMemberDao;
 import com.adminMember.service.AdminMemberService;
-import com.letter.vo.LetterVo;
 import com.member.vo.MemberVo;
+import com.adminMember.util.PageNavigator;
 
 @Service("AdminMemberService")
 public class AdminMemberServiceImpl implements AdminMemberService{
+	
+	private final int LINE_PER_PAGE = 5;
 	
 	@Autowired
 	private AdminMemberDao adminmemberdao;
 	
 	@Override
-	public int countCheck(MemberVo membervo) throws Exception {
+	public int countCheck(String type, String value) throws Exception {
 		// TODO Auto-generated method stub
-		return adminmemberdao.CountCheck(membervo);
+		Map<String, String> param = new HashMap<String, String>();
+		param.put("type", type);
+		param.put("value", value);
+		return adminmemberdao.CountCheck(param);
 	}
 	
 /*	
@@ -32,11 +37,25 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 */
 	
 	@Override
-	public List<MemberVo> memberList(String type, String value) throws Exception {
-		// TODO Auto-generated method stub
+	public int getLastPage(String type, String value) throws Exception{
 		Map<String, String> param = new HashMap<String, String>();
 		param.put("type", type);
 		param.put("value", value);
+		return (int)(Math.ceil((double)adminmemberdao.CountCheck(param)/LINE_PER_PAGE));
+	}
+	
+	@Override
+	public List<MemberVo> memberList(String type, String value, int page) throws Exception {
+		// TODO Auto-generated method stub
+		
+		PageNavigator pageNavigator = new PageNavigator(page, LINE_PER_PAGE);
+		
+		Map<String, Object> param = new HashMap<String, Object>();
+		
+		param.put("type", type);
+		param.put("value", value);
+		param.put("pageNavigator", pageNavigator);
+		
 		return adminmemberdao.memberList(param);
 	}
 }

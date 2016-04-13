@@ -24,7 +24,7 @@
  	</p> 
  	</form> 
 
- 	<c:out value = "${totalCount}" /> 
+	<c:out value = "${totalCount}" /> 
 	<div class="adminMember">
 	<form name="AdminMemberform" action="/adminMemberList" method="post">
 	<table border="1" summary="회원 목록"> 
@@ -67,9 +67,13 @@
  			    </tr> 
 			    </c:forEach> 
  			</c:otherwise> 
- 			</c:choose> 		
+ 			</c:choose> 	
 		</tbody>
- 	</table> 
+ 	</table>
+	<c:forEach var="page" begin="1" end="${lastPage}"> 
+ 	   <a href="/adminMember?page=${page}"><c:out value = "${page}" /></a>
+	</c:forEach> 
+
 	</form>
 	</div>
 </body>

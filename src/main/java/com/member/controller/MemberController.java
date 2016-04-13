@@ -12,14 +12,13 @@ import java.util.Properties;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.fileupload.FileUpload;
-import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.MultipartRequest;
 
 import com.member.service.MemberService;
@@ -44,7 +43,6 @@ public class MemberController {
 	public String memberjoin(Model model) {
 		
 			System.out.println("회원가입 Page이동!");
-		
 			return "/member/MemberJoin";
 	}
 	
@@ -105,15 +103,19 @@ public class MemberController {
 	
 	
 	@RequestMapping(value = "/memberjoin_j", method = RequestMethod.POST)
-	public String memberjoin_j(HttpRequest request, Model model, MemberVo membervo, MultipartRequest multipartRequest) throws Exception{
+	public String memberjoin_j(Model model, MemberVo membervo, MultipartHttpServletRequest multipartRequest) throws Exception{
 	
 		
 //		MemberController.fileUpload(fileData, path, fileName);
 //		MultipartRequest multi=new MultipartRequest(model, "MS949",new DefaultFileRenamePolicy());
 		
 		if(!membervo.getId().equals(null) || !membervo.getId().equals("") ){
+			System.out.println("upload 전");
 			
 			MultipartFile file = multipartRequest.getFile("upload");   //뷰에서 form으로 넘어올 때 name에 적어준 이름입니다.
+			System.out.println("filePAth = " + file);
+			System.out.println("upload 후");
+			
 			Calendar cal = Calendar.getInstance();
 			String fileName = file.getOriginalFilename();
 			String fileType = fileName.substring(fileName.lastIndexOf("."), fileName.length());
@@ -127,7 +129,7 @@ public class MemberController {
 		    String CurrentTime = ctime.format(new Date(time));
 		    
 		    System.out.println("CurrentTime = " + CurrentTime);
-		    System.out.println("파일PATH = "  + membervo.getNationality());
+		    System.out.println("파일PATH = "  + membervo.getFileupload());
 		    
 			memberservice.memberjoin(membervo);
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");

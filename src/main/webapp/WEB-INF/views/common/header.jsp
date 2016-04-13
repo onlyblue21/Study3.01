@@ -9,7 +9,7 @@
 	
 	<nav>
 		<ul class="nav">
-			<li>Develop</li>
+			<li><a href="/develop/">Develop</a></li>
 			<li>중고거래</li>
 			<li>갤러리</li>
 			<li>MyPage</li>

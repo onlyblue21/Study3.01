@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Develop">
+	<select id="selectDevelopList" resultType="Develop">
+		SELECT DEVELOP_SEQ
+			  ,MEMBER_SEQ
+			  ,TITLE
+			  ,CONTENT
+			  ,REG_DATE
+			  ,UPDATE_DATE
+			  ,DELETE_DATE
+			  ,READ_COUNT
+			  ,DEL_YN
+		 FROM DEVELOP
+		WHERE DEL_YN = 'N'
+     ORDER BY UPDATE_DATE DESC
+     /* com.develop.dao.DevelopDao.selectDevelopList */
+	</select>
+
+	<select id="selectDevelop" parameterType="Develop" resultType="Develop">
+		SELECT DEVELOP_SEQ
+			  ,MEMBER_SEQ
+			  ,TITLE
+			  ,CONTENT
+			  ,REG_DATE
+			  ,UPDATE_DATE
+			  ,DELETE_DATE
+			  ,READ_COUNT
+			  ,DEL_YN
+		 FROM DEVELOP
+	    WHERE DEL_YN = 'N'
+	      AND DEVELOP_SEQ = #{developSeq}
+	    /* com.develop.dao.DevelopDao.selectDevelop */
+	</select>
+
+	<insert id="insertDevelop">
+		INSERT 
+		INTO DEVELOP (
+			 DEVELOP_SEQ
+			,MEMBER_SEQ
+			,TITLE
+			,CONTENT
+			,REG_DATE
+			,UPDATE_DATE
+			,READ_COUNT
+			)
+		VALUSE (
+			 #{developSeq}
+			,#{member_seq}
+			,#{title}
+			,#{content}
+			,SYSDATE
+			,SYSDATE
+			,0
+		)
+		/* com.develop.dao.DevelopDao.insertDevelop */
+		<selectKey keyProperty="developSeq" resultType="int" order="BEFORE">
+            SELECT SQ_DEVELOP_SEQ.NEXTVAL FROM DUAL
+        </selectKey>  
+	</insert>
+	
+	<update id="updateDevelop" parameterType="Develop">
+		UPDATE DEVELOP
+		   SET 
+		     TITLE = #{title}
+			,CONTENT = #{content}
+			,UPDATE_DATE = SYSDATE
+		WHERE DEVELOP_SEQ = #{developSeq}
+	</update>
+	
+	<update id="updateDevelopReadCount" parameterType="Develop">
+		UPDATE DEVELOP
+		   SET 
+		     READ_COUNT = ((SELECT READ_COUNT FROM DEVELOP WHERE DEVELOP_SEQ = #{developSeq}) + 1)
+		WHERE DEVELOP_SEQ = #{developSeq}
+	</update>
+	
+	<update id="deleteDevelop" parameterType="Develop">
+		UPDATE DEVELOP
+		   SET 
+			 DEL_YN = 'Y'
+			,DELETE_DATE = SYSDATE
+		WHERE DEVELOP_SEQ = #{developSeq}
+	</update>
+	
+</mapper>

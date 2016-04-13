@@ -15,6 +15,7 @@
 		<typeAlias type="com.member.vo.MemberVo"	 	alias="Member"/>
 		<typeAlias type="com.letter.vo.LetterVo"	 	alias="Letter"/>
 		<typeAlias type="com.usedTrade.vo.UsedTradeVo"	alias="UsedTrade"/>
+		<typeAlias type="com.develop.vo.DevelopVo" 		alias="Develop"/>
 	</typeAliases>
 
 
@@ -24,5 +25,6 @@
 		<mapper resource="sql/LetterSQL.xml"/>
 		<mapper resource="sql/UsedTradeSQL.xml"/>
 		<mapper resource="sql/AdminMemberSQL.xml"/>
+		<mapper resource="sql/DevelopSQL.xml"/>
 	</mappers>
 </configuration>

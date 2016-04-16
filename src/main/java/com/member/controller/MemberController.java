@@ -36,7 +36,6 @@ public class MemberController {
 	}
 	
 	
-	
 	@RequestMapping(value = "/memberJoin", method = RequestMethod.POST)
 	public String memberjoin(Model model) {
 		
@@ -45,8 +44,7 @@ public class MemberController {
 	}
 	
 	
-//-------------------------------파일 업로드 소스 ---------------------------------	
-	
+	//fileupload
 	public void fileUpload(MultipartFile mulpartfile, Model model, MemberVo membervo) throws IOException {
 		
 		final Logger logger = LoggerFactory.getLogger(MemberController.class);
@@ -62,8 +60,6 @@ public class MemberController {
 		 File filepath = new File(path);
 	     File newFile = new File(path+"/"+fileName);
 	     logger.debug("newFile:"+newFile);
-//		 MultipartFile file = multipartRequest.getFile("upload");  
-		 
 		 try{
 			 if(!filepath.isDirectory()){
 				 filepath.mkdirs();
@@ -76,25 +72,6 @@ public class MemberController {
 	            model.addAttribute("message", "파일업로드 실패!");
 		 }
 	}
-//-------------------------------파일 업로드 소스 ---------------------------------	
-	
-	
-	
-/*	@RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
-	 public String fileUpload(Model model, MultipartRequest multipartRequest) throws IOException{
-		
-	  MultipartFile file = multipartRequest.getFile("upload");   //뷰에서 form으로 넘어올 때 name에 적어준 이름입니다.
-	  Calendar cal = Calendar.getInstance();
-	  String fileName = file.getOriginalFilename();
-	  String fileType = fileName.substring(fileName.lastIndexOf("."), fileName.length());
-	  String replaceName = cal.getTimeInMillis() + fileType;  //파일 이름의 중복을 막기 위해서 이름을 재설정합니다.
-	  
-	  String path = "C:/Fileupload";   //제 바탕화면의 upload 폴더라는 경로입니다. 자신의 경로를 쓰세요.
-	  MemberController.fileUpload(file, path, replaceName);
-	  return "redirect:/";
-	 }*/
-	//-----------------------------------------
-	
 	
 	
 	@RequestMapping(value = "/memberjoin_j", method = RequestMethod.POST)

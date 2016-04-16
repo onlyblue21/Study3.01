@@ -66,7 +66,7 @@ public class LetterController {
 	}	*/
 	
 	@SuppressWarnings("unchecked")
-	@RequestMapping(value="/letterListSearch", method={RequestMethod.POST})
+	@RequestMapping(value="/letterListSearch", method={RequestMethod.POST}, produces="application/json; charset=utf8")
 	@ResponseBody
 	public String letterListSearch(HttpServletRequest req, @RequestBody String param) throws Exception{
 		ArrayList  letterList = new ArrayList();
@@ -108,7 +108,7 @@ public class LetterController {
 		System.out.println(letterVo.getContent());
 */
 		int result =letterService.letterWrite(letterVo);
-		String msg=result>0?"±Û¾²±â¼º°ø!":"±Û¾²±â½ÇÆÐ!";
+		String msg=result>0?"ï¿½Û¾ï¿½ï¿½â¼ºï¿½ï¿½!":"ï¿½Û¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½!";
 		System.out.println(msg);
 		
 		mav.setViewName("letter/Letter");

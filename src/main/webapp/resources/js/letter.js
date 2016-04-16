@@ -7,6 +7,7 @@ function letterList($name){
 	
 	var success = function(json){
 		console.log(json);
+		
 		if(json.size>0){
 			$name.clearGridData();
 			$name.jqGrid({
@@ -33,7 +34,8 @@ function letterList($name){
 			        	
 			        });
 			for(var i=0;i<json.size;i++){
-				console.log(json.data[i])
+//				console.log(json.data[i])
+				console.log(json.data[i].content);
 				$name.jqGrid('addRowData',i+1,json.data[i]);
 			}
 			$name.jqGrid('navGrid','#pager',{edit:false,add:false,del:false});

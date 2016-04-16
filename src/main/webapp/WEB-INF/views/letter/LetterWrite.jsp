@@ -16,14 +16,21 @@
 						<tr>
 							<th>받는사람</th>
 								<td><input type="hidden" id="recipient_seq"  name="recipient_seq"  value="2"></td>
-								<td><input type="text" id="recipient_id" name="recipient_id"></td>
-							<td><input type="button" id="recipientLayer" value="주소록"></td>					
+								<td><input type="text" id="recipient_id" name="recipient_id"  required="required"></td>
+							<td><input type="button" id="recipientLayer" value="주소록" onclick="OpenDialog('#addr',700,350,true)"></td>
 						</tr>
 						<tr>
 							<td colspan="3"><textarea id="content" name="content" rows="10" cols="50">쪽지내용</textarea></td>
-						</tr>				
+						</tr>
 				</table>
 		</div>
 	</form>
+	<div id="addr" >
+		<label>ID></label>
+		<input type="text" id="member_id"  name="member_id"  value="sin">
+		<label>이름></label>
+		<input type="text" id="member_name" name="member_name"  value="신신호">
+	</div>
+	
 </body>
 </html>

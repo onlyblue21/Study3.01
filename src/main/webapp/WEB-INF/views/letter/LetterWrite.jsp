@@ -1,28 +1,29 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>¹ÞÀºÂÊÁöÇÔ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>ë°›ì€ìª½ì§€í•¨</title>
 </head>
 <body>
 <jsp:include page="LetterLefter.jsp" />
-	<div>
-		<input type="button"  id="send"  value="º¸³»±â">
-		<input type="button"  id="clear"  value="Áö¿ì±â">
-	</div>						
-	<div id="sendWrapper">
-		<table>
-				<tr>
-					<th>¹Þ´Â»ç¶÷</th>
-					<td><input type="text" id="receiver"></td>
-					<td><input type="button" id="receiverLayer" value="ÁÖ¼Ò·Ï"></td>					
-				</tr>
-				<tr>
-					<td colspan="3"><textarea id="content" rows="10" cols="50">ÂÊÁö³»¿ë</textarea></td>
-				</tr>				
-		</table>
-	</div>
+	<form id="letterWrite" action="letterWrite" method="post">
+		<input type="submit"  id="send"  value="ë³´ë‚´ê¸°">
+		<input type="button"  id="clear"  value="ì§€ìš°ê¸°">
+		<div id="sendWrapper">
+				<table>
+						<tr>
+							<th>ë°›ëŠ”ì‚¬ëžŒ</th>
+								<td><input type="hidden" id="recipient_seq"  name="recipient_seq"  value="2"></td>
+								<td><input type="text" id="recipient_id" name="recipient_id"></td>
+							<td><input type="button" id="recipientLayer" value="ì£¼ì†Œë¡"></td>					
+						</tr>
+						<tr>
+							<td colspan="3"><textarea id="content" name="content" rows="10" cols="50">ìª½ì§€ë‚´ìš©</textarea></td>
+						</tr>				
+				</table>
+		</div>
+	</form>
 </body>
 </html>

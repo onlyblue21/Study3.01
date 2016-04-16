@@ -15,26 +15,43 @@ function letterList($name){
 				height: 250,
 				colNames:['번호','보낸사람ID', '내용', '받은시각','확인'],
 				colModel:[
-				          {name:'LETTER_SEQ'},
-				          {name:'ID'},
-				          {name:'CONTENT'},
-				          {name:'INSERT_DATE'},
-				          {name:'CHECK_YN'}     
+				          {name:'letter_seq'},
+				          {name:'sender_id'},
+				          {name:'content'},
+				          {name:'insert_date'},
+				          {name:'check_yn'}     
 			          ],
 
 			          rowNum : '10',
 			          multiselect : true,
 			          pager : '#pager',
-			          viewrecords: true,
-			          caption: "LETTER 목록"
+			          caption: "LETTER 목록",
+			          onSelectRow: function(letter_seq){
+			        	  var value ="letter_seq="+letter_seq;
+			        	  letterGetLocation(3, letter_seq);
+			          }
+			        	
 			        });
 			for(var i=0;i<json.size;i++){
+				console.log(json.data[i])
 				$name.jqGrid('addRowData',i+1,json.data[i]);
 			}
 			$name.jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
 		}
 	}
 	_ajax("post","/letterListSearch","json",param,success);
+}
+
+function letterGetLocation(index, value){
+	var url="";
+	if(index==1){
+		url="/letter"
+	}else if(index==2){
+		url="/letterWrite";
+	}else if(index==3){
+		url="/letterContent?letter_seq="+value;
+	}
+	$(location).attr("href",url);
 }
 
 

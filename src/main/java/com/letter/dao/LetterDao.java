@@ -18,15 +18,18 @@ public class LetterDao {
 		return (ArrayList)sqlSession.selectList("letterList");
 	}
 	
-	public ArrayList letterList(Map<String, String> key){
+/*	public ArrayList letterList(Map<String, String> key){
 		return (ArrayList)sqlSession.selectList("letterListSearch", key);
 	}
-	
+	*/
+	public ArrayList<LetterVo> letterList(Map<String, String> key){
+		return (ArrayList)sqlSession.selectList("letterListSearch", key);
+	}
 	public int letterWrite(LetterVo vo){
 		return sqlSession.insert("letterWrite", vo);
 	}
 	
-	public LetterVo letterSelect(int seq){
-		return sqlSession.selectOne("seq");
+	public LetterVo letterSelect(int letter_seq){
+		return sqlSession.selectOne("letterSelect",letter_seq);
 	}
 }

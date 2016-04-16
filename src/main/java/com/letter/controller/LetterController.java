@@ -92,15 +92,39 @@ public class LetterController {
 	
 	@RequestMapping(value="/letterWrite")
 	public ModelAndView letterWrite(ModelAndView mav) throws Exception{
-		System.out.println("controller /letterWrite ");
+		System.out.println("controller /letterWrite GET ");
 		mav.setViewName("letter/LetterWrite");
 		
 		return mav;
 	}
-	@RequestMapping(value="/letterContent")
-	public ModelAndView letterContent(ModelAndView mav) throws Exception{
-//		System.out.println("controller /letterContent ");
-		mav.setViewName("letter/letterContent");
+	
+	@RequestMapping(value="/letterWrite",  method={RequestMethod.POST})
+	public ModelAndView letterWrite(ModelAndView mav, LetterVo letterVo) throws Exception{
+		System.out.println("controller /letterWrite POST");
+		letterVo.setSender_id("sin");
+		letterVo.setSender_seq("1");
+/*		System.out.println(letterVo.getRecipient_id());
+		System.out.println(letterVo.getRecipient_seq());
+		System.out.println(letterVo.getContent());
+*/
+		int result =letterService.letterWrite(letterVo);
+		String msg=result>0?"글쓰기성공!":"글쓰기실패!";
+		System.out.println(msg);
+		
+		mav.setViewName("letter/Letter");
+		return mav;
+	}
+	@RequestMapping(value="/letterContent", method={RequestMethod.GET})
+	public ModelAndView letterContent(HttpServletRequest req) throws Exception{
+		ModelAndView mav = new ModelAndView();
+		System.out.println("controller /letterContent ");
+		System.out.println("req "+req.getParameter("letter_seq"));
+		int seq = Integer.parseInt(req.getParameter("letter_seq"));
+		LetterVo letterVo = letterService.letterSelect(seq);
+		System.out.println(letterVo.toString());
+		
+		mav.addObject("letterVo", letterVo);
+		mav.setViewName("letter/LetterContent");
 		
 		return mav;
 	}		

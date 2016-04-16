@@ -22,13 +22,19 @@ public class LetterServiceImpl implements LetterService {
 	public ArrayList<LetterVo> letterList() throws Exception {
 		return letterDao.letterList();
 	}
-	@Override
+/*	@Override
 	public ArrayList<LetterVo> letterList(String type, String value) throws Exception {
 		Map<String, String> key = new HashMap<String, String>();
 		key.put("type", type);
 		key.put("value", value);
 		return letterDao.letterList(key);
-	}
+	}*/
+	public ArrayList<LetterVo> letterList(String type, String value) throws Exception {
+		Map<String, String> key = new HashMap<String, String>();
+		key.put("type", type);
+		key.put("value", value);
+		return letterDao.letterList(key);
+	}	
 	@Override
 	public int letterWrite(LetterVo vo) throws Exception {
 		return letterDao.letterWrite(vo);
@@ -36,7 +42,7 @@ public class LetterServiceImpl implements LetterService {
 
 	@Override
 	public LetterVo letterSelect(int seq) throws Exception {
-		return letterSelect(seq);
+		return letterDao.letterSelect(seq);
 	}
 
 

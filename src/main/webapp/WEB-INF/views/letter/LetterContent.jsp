@@ -1,42 +1,30 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+    pageEncoding="utf-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>    
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>¹ŞÀºÂÊÁöÇÔ</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<c:set var="letterVo" value="${letterVo }"/>
+<title>${letterVo.content}</title>
 </head>
 <body>
 <jsp:include page="LetterLefter.jsp" />
-	<div id="searchWrapper">
+<div>
+	<input type="submit"  id="delete"  value="ì‚­ì œ" >
+	<input type="button"  id="goList"  value="ëª©ë¡" onclick="letterGetLocation(1)">
+	<input type="button"  id="prev"  value="<ì´ì „">
+	<input type="button"  id="next"  value="ë‹¤ìŒ>">	
+</div>
 		<div>
-			<select id="searchType">
-				<option value="receive"></option>
-				<option value="receive">¾ÆÀÌµğ</option>
-				<option value="receive">³»¿ë</option>
-			</select>
-		</div>							
-		<div>
-			<input type="text"  id="searchValue">
-		</div>						
-	</div>
-	<div id="listWrapper">
-		<table>
-			<thead>
-				<tr>
-					<th>¹øÈ£</th>
-					<th>º¸³½»ç¶÷ID</th>
-					<th>³»¿ë</th>
-					<th>¹ŞÀº½Ã°£</th>
-					<th>È®ÀÎ</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td></td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
+				<table>
+						<tr>
+							<th><span>${letterVo.sender_id}ë‹˜ì´ ë³´ë‚¸ ìª½ì§€</span><span>ë°›ì€ì‹œê°„ : ${letterVo.insert_date}</span></th>
+						</tr>
+						<tr>
+							<td colspan="3"><textarea id="content" name="content" rows="10" cols="50">${letterVo.content}</textarea></td>
+						</tr>				
+				</table>
+		</div>
 </body>
 </html>

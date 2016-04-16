@@ -6,6 +6,7 @@
 	<select id="letterList" resultType="Letter">
 		SELECT * FROM LETTER
 	</select>
+<!--  	
 	<select id="letterListSearch"  resultType="hashmap">
 		SELECT A.LETTER_SEQ, B.ID, A.CONTENT, A.INSERT_DATE, A.CHECK_YN
 		FROM LETTER A INNER JOIN MEMBER B ON A.RECIPIENT_SEQ = B.MEMBER_SEQ
@@ -15,13 +16,23 @@
 	        </where>
 	    </if>    
 	</select>
+	-->
+	<select id="letterListSearch"  resultType="Letter">
+		SELECT LETTER_SEQ, RECIPIENT_SEQ, RECIPIENT_ID, SENDER_ID, SENDER_SEQ, SENDER_ID, CONTENT, INSERT_DATE, CHECK_YN
+		FROM LETTER
+		<if test="value != ''">
+			<where>
+				${type} like #{value}
+	        </where>
+	    </if>    
+	</select>	
 	<insert id="letterWrite" parameterType="Letter">
 		<![CDATA[
-			INSERT INTO LETTER (recipient_seq, sender_seq, content, insert_date, check_yn, del_yn)
-			values(#{recipient_seq},#{sender_seq},#{content},now(),"N","N")
+			INSERT INTO LETTER (recipient_seq, recipient_id, sender_seq, sender_id, content, insert_date, check_yn, del_yn)
+			values(#{recipient_seq},#{recipient_id},#{sender_seq},#{sender_id},#{content},now(),"N","N")
 		]]>
 	</insert>
 	<select id="letterSelect" parameterType="int" resultType="Letter">
-		SELECT * FROM LETTER WHERE LETTER_SEQ=#{letter_seq}
+		SELECT letter_seq, recipient_seq, recipient_id, sender_seq, sender_id, content, insert_date, check_yn, del_yn FROM LETTER WHERE LETTER_SEQ=#{letter_seq}
 	</select>
 </mapper>

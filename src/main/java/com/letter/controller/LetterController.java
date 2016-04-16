@@ -108,9 +108,7 @@ public class LetterController {
 		System.out.println(letterVo.getContent());
 */
 		int result =letterService.letterWrite(letterVo);
-		String msg=result>0?"�۾��⼺��!":"�۾������!";
-		System.out.println(msg);
-		
+	
 		mav.setViewName("letter/Letter");
 		return mav;
 	}

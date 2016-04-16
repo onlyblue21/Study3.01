@@ -23,4 +23,9 @@ public class MemberDao {
 		return x < 1 ? false : true;
 	}
 	
+	public int memberphoto(MemberVo membervo) throws Exception{
+		
+		return sqlSession.insert("memberphoto",membervo);
+	}
+	
 }

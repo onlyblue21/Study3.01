@@ -22,6 +22,12 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public boolean Login(MemberVo membervo) throws Exception {
 		return memberdao.Login(membervo);
+	}
 	
-}
+	@Override
+	public int memberphoto(MemberVo membervo) throws Exception{
+		return memberdao.memberphoto(membervo);
+	}
+	
+	
 }

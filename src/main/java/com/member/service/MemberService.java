@@ -8,4 +8,6 @@ public interface MemberService {
 	
 	public boolean Login(MemberVo membervo) throws Exception;
 	
+	public int memberphoto(MemberVo membervo) throws Exception;
+	
 }

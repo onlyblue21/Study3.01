@@ -4,7 +4,6 @@ import java.util.Date;
 
 public class MemberVo {
 
-	  private int member_seq;
 	  private String id;
 	  private String password;
 	  private String user_name;
@@ -29,12 +28,11 @@ public class MemberVo {
 	  private String religion;
 	  private String introduction;
 	  
-	public int getMember_seq() {
-		return member_seq;
-	}
-	public void setMember_seq(int member_seq) {
-		this.member_seq = member_seq;
-	}
+	  private Date change_date;
+	  private String change_yn;
+	  private String member_seq;
+	  
+	  
 	public String getId() {
 		return id;
 	}
@@ -173,7 +171,26 @@ public class MemberVo {
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
 	}
-
+	public Date getChange_date() {
+		return change_date;
+	}
+	public void setChange_date(Date change_date) {
+		this.change_date = change_date;
+	}
+	public String getChange_yn() {
+		return change_yn;
+	}
+	public void setChange_yn(String change_yn) {
+		this.change_yn = change_yn;
+	}
+	public String getMember_seq() {
+		return member_seq;
+	}
+	public void setMember_seq(String member_seq) {
+		this.member_seq = member_seq;
+	}
+	  
+	  	
 	  
 	  
 	  

@@ -57,13 +57,12 @@ public class MemberController {
 		    
 		    System.out.println("CurrentTime = " + CurrentTime);
 		    System.out.println("파일PATH = "  + membervo.getFileupload());
-		    
-			memberservice.memberjoin(membervo);
+//			memberservice.memberjoin(membervo);	//---- 아직 미완성
+			memberservice.memberphoto(membervo);
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
 			model.addAttribute("LoginResult","SUCCESS");
 			System.out.println("회원가입 완료!");
 		}else{
-			
 			System.out.println("id가 널일경우");
 		}
 		
@@ -120,10 +119,9 @@ public class MemberController {
 //		String path ="j:/File"; //서버
 		String fileName = UUID.randomUUID().toString() + ".png"; 
 		
-//		MultipartFile report = multipartRequest.getFile("upload");
-//		System.out.println("report.getName " +  report.getName());
-//		System.out.println("report.getsize =" + report.getSize());
-//		System.out.println("report.getOriginalFilename =" + report.getOriginalFilename());
+		System.out.println("report.getName " +  mulpartfile.getName());
+		System.out.println("report.getsize =" + mulpartfile.getSize());
+		System.out.println("report.getOriginalFilename =" + mulpartfile.getOriginalFilename());
 		
 		 File filepath = new File(path);
 	     File newFile = new File(path+"/"+fileName);

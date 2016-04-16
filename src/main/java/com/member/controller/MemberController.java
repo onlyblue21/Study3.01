@@ -25,6 +25,7 @@ import com.member.vo.MemberVo;
 @Controller
 public class MemberController {
 
+	
 	@Resource(name="MemberService")
 	public MemberService memberservice; 
 	
@@ -41,36 +42,6 @@ public class MemberController {
 		
 			System.out.println("회원가입 Page이동!");
 			return "/member/MemberJoin";
-	}
-	
-	
-	//fileupload
-	public void fileUpload(MultipartFile mulpartfile, Model model, MemberVo membervo) throws IOException {
-		
-		final Logger logger = LoggerFactory.getLogger(MemberController.class);
-		String path = "F:/FIle";  //로컬
-//		String path ="j:/File"; //서버
-		String fileName = UUID.randomUUID().toString() + ".png"; 
-		
-//		MultipartFile report = multipartRequest.getFile("upload");
-//		System.out.println("report.getName " +  report.getName());
-//		System.out.println("report.getsize =" + report.getSize());
-//		System.out.println("report.getOriginalFilename =" + report.getOriginalFilename());
-		
-		 File filepath = new File(path);
-	     File newFile = new File(path+"/"+fileName);
-	     logger.debug("newFile:"+newFile);
-		 try{
-			 if(!filepath.isDirectory()){
-				 filepath.mkdirs();
-			 }
-			 FileUtils.writeByteArrayToFile(newFile, mulpartfile.getBytes());
-			 membervo.setFileupload(newFile.toString());
-	         model.addAttribute("message", "파일업로드 성공!");
-		 }catch(Exception ex){
-			 ex.printStackTrace();
-	            model.addAttribute("message", "파일업로드 실패!");
-		 }
 	}
 	
 	
@@ -108,7 +79,7 @@ public class MemberController {
 		String notice="";
 		
 		final String fromEmail="onlyblue21@gmail.com";
-		final String password="rlatjdanr26";
+		final String password="";
 		
 		Properties per = new Properties();
 		
@@ -136,11 +107,39 @@ public class MemberController {
 			notice="전송오류:" + e.toString(); 
 		}
 		System.out.println(notice);
-		
+		 
 		return "";
 	}
 	
 
+	//fileupload
+	public void fileUpload(MultipartFile mulpartfile, Model model, MemberVo membervo) throws IOException {
+		
+		final Logger logger = LoggerFactory.getLogger(MemberController.class);
+		String path = "F:/FIle";  //로컬
+//		String path ="j:/File"; //서버
+		String fileName = UUID.randomUUID().toString() + ".png"; 
+		
+//		MultipartFile report = multipartRequest.getFile("upload");
+//		System.out.println("report.getName " +  report.getName());
+//		System.out.println("report.getsize =" + report.getSize());
+//		System.out.println("report.getOriginalFilename =" + report.getOriginalFilename());
+		
+		 File filepath = new File(path);
+	     File newFile = new File(path+"/"+fileName);
+	     logger.debug("newFile:"+newFile);
+		 try{
+			 if(!filepath.isDirectory()){
+				 filepath.mkdirs();
+			 }
+			 FileUtils.writeByteArrayToFile(newFile, mulpartfile.getBytes());
+			 membervo.setFileupload(newFile.toString());
+	         model.addAttribute("message", "파일업로드 성공!");
+		 }catch(Exception ex){
+			 ex.printStackTrace();
+	            model.addAttribute("message", "파일업로드 실패!");
+		 }
+	}
 
 	
 }

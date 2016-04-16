@@ -1,25 +1,23 @@
 package com.member.controller;
 
 import java.io.File;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.Properties;
+import java.util.UUID;
 
 import javax.annotation.Resource;
 
+import org.apache.commons.io.FileUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.FileCopyUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.MultipartRequest;
 
 import com.member.service.MemberService;
 import com.member.vo.MemberVo;
@@ -49,45 +47,42 @@ public class MemberController {
 	
 //-------------------------------파일 업로드 소스 ---------------------------------	
 	
-	public static void fileUpload(MultipartFile fileData, String path, String fileName) throws IOException {
-		  String originalFileName = fileData.getOriginalFilename();
-		  String contentType = fileData.getContentType();
-		  long fileSize = fileData.getSize();
-		/*
-		  System.out.println("file Info");
-		  System.out.println("fileName " + fileName);
-		  System.out.println("originalFileName :" + originalFileName);
-		  System.out.println("contentType :" + contentType);
-		  System.out.println("fileSize :" + fileSize);
-		*/
-		  InputStream is = null;
-		  OutputStream out = null;
-		  try {
-		   if (fileSize > 0) {
-		    is = fileData.getInputStream();
-		    File realUploadDir = new File(path);
-		    if (!realUploadDir.exists()) {             //경로에 폴더가 존재하지 않으면 생성합니다.
-		     realUploadDir.mkdirs();
-		    }
-		    out = new FileOutputStream(path +"/"+ fileName);
-		    FileCopyUtils.copy(is, out);            //InputStream에서 온 파일을 outputStream으로 복사
-		   }else{
-		    new IOException("잘못된 파일을 업로드 하셨습니다.");
-		   }
-		  } catch (IOException e) {
-		   e.printStackTrace();
-		   new IOException("파일 업로드에 실패하였습니다.");
-		  }finally{
-		   if(out != null){out.close();}
-		   if(is != null){is.close();}
-		  }
+	public void fileUpload(MultipartFile mulpartfile, Model model, MemberVo membervo) throws IOException {
+		
+		final Logger logger = LoggerFactory.getLogger(MemberController.class);
+		String path = "F:/FIle";  //로컬
+//		String path ="j:/File"; //서버
+		String fileName = UUID.randomUUID().toString() + ".png"; 
+		
+//		MultipartFile report = multipartRequest.getFile("upload");
+//		System.out.println("report.getName " +  report.getName());
+//		System.out.println("report.getsize =" + report.getSize());
+//		System.out.println("report.getOriginalFilename =" + report.getOriginalFilename());
+		
+		 File filepath = new File(path);
+	     File newFile = new File(path+"/"+fileName);
+	     logger.debug("newFile:"+newFile);
+//		 MultipartFile file = multipartRequest.getFile("upload");  
+		 
+		 try{
+			 if(!filepath.isDirectory()){
+				 filepath.mkdirs();
+			 }
+			 FileUtils.writeByteArrayToFile(newFile, mulpartfile.getBytes());
+			 membervo.setFileupload(newFile.toString());
+	         model.addAttribute("message", "파일업로드 성공!");
+		 }catch(Exception ex){
+			 ex.printStackTrace();
+	            model.addAttribute("message", "파일업로드 실패!");
 		 }
+	}
 //-------------------------------파일 업로드 소스 ---------------------------------	
 	
 	
 	
-	@RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
+/*	@RequestMapping(value = "/fileUpload", method = RequestMethod.POST)
 	 public String fileUpload(Model model, MultipartRequest multipartRequest) throws IOException{
+		
 	  MultipartFile file = multipartRequest.getFile("upload");   //뷰에서 form으로 넘어올 때 name에 적어준 이름입니다.
 	  Calendar cal = Calendar.getInstance();
 	  String fileName = file.getOriginalFilename();
@@ -97,33 +92,17 @@ public class MemberController {
 	  String path = "C:/Fileupload";   //제 바탕화면의 upload 폴더라는 경로입니다. 자신의 경로를 쓰세요.
 	  MemberController.fileUpload(file, path, replaceName);
 	  return "redirect:/";
-	 }
+	 }*/
 	//-----------------------------------------
 	
 	
 	
 	@RequestMapping(value = "/memberjoin_j", method = RequestMethod.POST)
-	public String memberjoin_j(Model model, MemberVo membervo, MultipartHttpServletRequest multipartRequest) throws Exception{
-	
-		
-//		MemberController.fileUpload(fileData, path, fileName);
-//		MultipartRequest multi=new MultipartRequest(model, "MS949",new DefaultFileRenamePolicy());
+	public String memberjoin_j(@RequestParam("upload") MultipartFile mulpartfile, Model model, MemberVo membervo) throws Exception{
 		
 		if(!membervo.getId().equals(null) || !membervo.getId().equals("") ){
-			System.out.println("upload 전");
 			
-			MultipartFile file = multipartRequest.getFile("upload");   //뷰에서 form으로 넘어올 때 name에 적어준 이름입니다.
-			System.out.println("filePAth = " + file);
-			System.out.println("upload 후");
-			
-			Calendar cal = Calendar.getInstance();
-			String fileName = file.getOriginalFilename();
-			String fileType = fileName.substring(fileName.lastIndexOf("."), fileName.length());
-			String replaceName = cal.getTimeInMillis() + fileType;  //파일 이름의 중복을 막기 위해서 이름을 재설정합니다.
-			
-			String path = "C:/Fileupload";   //제 바탕화면의 upload 폴더라는 경로입니다. 자신의 경로를 쓰세요.
-			MemberController.fileUpload(file, path, replaceName);
-			
+			new MemberController().fileUpload(mulpartfile, model, membervo );
 			long time = System.currentTimeMillis();
 		    SimpleDateFormat ctime = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
 		    String CurrentTime = ctime.format(new Date(time));

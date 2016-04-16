@@ -47,31 +47,102 @@ function memberJoin(){
 //----------------------------Login--------------------------------------------
 
 function joinvalidate() {
+	
 	if (!document.memberjoin.id.value) {
 		alert("id를 입력하세요.");
 		document.memberjoin.id.focus();
 		return false;
 	}
 
-	if (!document.memberjoin.pw.value) {
+	if (!document.memberjoin.password.value) {
 		alert("pw를 입력하세요.");
-		document.memberjoin.pw.focus();
+		document.memberjoin.password.focus();
 		return false;
 	}
 	
-	if (!document.memberjoin.nick_name.value) {
+	if (!document.memberjoin.user_name.value) {
+		alert("user_name을 입력하세요.");
+		document.memberjoin.user_name.focus();
+		return false;
+	}
+	
+	if(!document.memberjoin.nick_name.value){
 		alert("nick_name을 입력하세요.");
 		document.memberjoin.nick_name.focus();
 		return false;
 	}
-	
 	if(!document.memberjoin.email.value){
 		alert("email을 입력하세요.");
 		document.memberjoin.email.focus();
 		return false;
 	}
-	
+	if(!document.memberjoin.phone_num.value){
+		alert("phone_num를 입력하세요.");
+		document.memberjoin.phone_num.focus();
+		return false;
+	}
+	if(!document.memberjoin.address.value){
+		alert("address를 입력하세요.");
+		document.memberjoin.address.focus();
+		return false;
+	}
+	if(!document.memberjoin.birth.value){
+		alert("생년월일을 입력하세요.");
+		document.memberjoin.birth.focus();
+		return false;
+	}
+//	if(!document.memberjoin.sex.value){
+//		alert("성별을 입력하세요.");
+//		document.memberjoin.sex.focus();
+//		return false;
+//	}
+	if(!document.memberjoin.upload.value){
+		alert("프로필 사진을 업로드 하세요.");
+		document.memberjoin.upload.focus();
+		return false;
+	}
+	if(!document.memberjoin.upload.value){
+		alert("프로필 사진을 업로드 하세요.");
+		document.memberjoin.upload.focus();
+		return false;
+	}
+	if(!document.memberjoin.live_nationality.value){
+		alert("국적을 선택 하세요.");
+		document.memberjoin.live_nationality.focus();
+		return false;
+	}
+	if(!document.memberjoin.city.value){
+		alert("거주지역을 선택 하세요.");
+		document.memberjoin.city.focus();
+		return false;
+	}
+	if(!document.memberjoin.job.value){
+		alert("직업을 선택 하세요.");
+		document.memberjoin.job.focus();
+		return false;
+	}
+	if(!document.memberjoin.religion.value){
+		alert("종교를 선택 하세요.");
+		document.memberjoin.religion.focus();
+		return false;
+	}
+	if(!document.memberjoin.introduction.value){
+		alert("자기 소개란을 작성 해주세요.");
+		document.memberjoin.introduction.focus();
+		return false;
+	}
 	return true;
+	
+//	$("document").ready(function() { 
+//		  $('textarea[maxlength]').live('keyup change', function() { 
+//		   var str = $(this).val() 
+//		   var mx = parseInt($(this).attr('maxlength')) 
+//		   if (str.length > mx) { 
+//		    $(this).val(str.substr(0, mx));
+//		     return false; 
+//		    } 
+//		  }) 
+//		 }) 
 }
 
 //logout

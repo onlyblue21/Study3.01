@@ -66,7 +66,7 @@ public class FileUpload {
 		  String replaceName = cal.getTimeInMillis() + fileType;  //파일 이름의 중복을 막기 위해서 이름을 재설정합니다.
 		  
 		  String path = "C:/Fileupload";   //제 바탕화면의 upload 폴더라는 경로입니다. 자신의 경로를 쓰세요.
-		  MemberController.fileUpload(file, path, replaceName);
+//		  MemberController.fileUpload(file, path, replaceName);
 		  return "redirect:/";
 		 }
 		//-----------------------------------------

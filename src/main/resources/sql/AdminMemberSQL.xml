@@ -27,6 +27,7 @@
 				,EMAIL
 				,SEX
 		FROM MEMBER
+		
 		<where>
 		<if test="value != null or type != null">
 			<if test="type != 'ALL'">

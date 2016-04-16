@@ -16,15 +16,14 @@ function letterList($name){
 				height: 250,
 				colNames:['번호','보낸사람ID', '내용', '받은시각','확인'],
 				colModel:[
-				          {name:'letter_seq'},
-				          {name:'sender_id'},
-				          {name:'content'},
-				          {name:'insert_date'},
-				          {name:'check_yn'}     
+				          {name:'letter_seq', index:'letter_seq'},
+				          {name:'sender_id', index:'sender_id'},
+				          {name:'content', index:'content'},
+				          {name:'insert_date', index:'insert_date'},
+				          {name:'check_yn', index:'check_yn'}
 			          ],
-
-			          rowNum : '10',
-			          multiselect : true,
+			          rowNum:10,
+			          rowList:[10,20,30],			          
 			          pager : '#pager',
 			          caption: "LETTER 목록",
 			          onSelectRow: function(letter_seq){
@@ -38,7 +37,7 @@ function letterList($name){
 				console.log(json.data[i].content);
 				$name.jqGrid('addRowData',i+1,json.data[i]);
 			}
-			$name.jqGrid('navGrid','#pager',{edit:false,add:false,del:false});
+			$name.jqGrid('navGrid','#pager',{edit:false,add:false,del:false,search:false,refresh:false});
 		}
 	}
 	_ajax("post","/letterListSearch","json",param,success);

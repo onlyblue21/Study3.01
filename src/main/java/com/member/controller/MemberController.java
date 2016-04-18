@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Properties;
 import java.util.UUID;
 
@@ -14,13 +15,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.member.dao.MemberDao;
 import com.member.service.MemberService;
 import com.member.vo.MemberVo;
+
+import net.sf.json.JSONObject;
 
 @Controller
 public class MemberController {
@@ -45,6 +50,24 @@ public class MemberController {
 	}
 	
 	
+	@RequestMapping(value = "/ajax", method = RequestMethod.POST)
+	public void ajaxTest(Model model, @RequestBody String param){
+		JSONObject json = JSONObject.fromObject(param);
+		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@");
+		
+		try{
+		ArrayList ajaxtest = new ArrayList();
+		ajaxtest = memberservice.ajaxseelct(json.get("type").toString(), json.get("value").toString());
+		
+		}catch(Exception ex){
+			ex.printStackTrace();
+		}
+	}
+		
+		
+	
+	
+	
 	@RequestMapping(value = "/memberjoin_j", method = RequestMethod.POST)
 	public String memberjoin_j(@RequestParam("upload") MultipartFile mulpartfile, Model model, MemberVo membervo) throws Exception{
 		
@@ -57,8 +80,9 @@ public class MemberController {
 		    
 		    System.out.println("CurrentTime = " + CurrentTime);
 		    System.out.println("파일PATH = "  + membervo.getFileupload());
-//			memberservice.memberjoin(membervo);	//---- 아직 미완성
-			memberservice.memberphoto(membervo);
+			memberservice.memberjoin(membervo);	
+//			memberservice.memberphoto(membervo);	//---- 아직 미완성
+			System.out.println("memberseq = " + membervo.getMember_seq());
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
 			model.addAttribute("LoginResult","SUCCESS");
 			System.out.println("회원가입 완료!");

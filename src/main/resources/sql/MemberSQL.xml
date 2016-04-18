@@ -20,6 +20,20 @@
 				]]>
 	</select>
 	
+	<select id="ajaxselect" parameterType="member">
+		SELECT 
+			ID
+		FROM
+			MEMBER
+
+			<where>
+				${type} like ={value}
+	        </where>
+
+	</select>
+	
+	
+	
 	<insert id="memberphoto" parameterType="Member">
 	<![CDATA[
 		INSERT INTO

@@ -4,9 +4,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/js/Ob21.js" type="text/javascript"></script>
+<script src="/js/jquery-1.12.1.js" type="text/javascript"></script>
+<script src="resources/js/common.js" type="text/javascript"></script>
 <script src="/js/member.js" type="text/javascript"></script>
-<script src="/js/jquery-1.11.2.js" type="text/javascript"></script>
+
 <title>Insert title here</title>
 </head>
 <body>
@@ -17,7 +18,7 @@
 <form name="memberjoin" action="/memberjoin_j" method="post" onsubmit="return joinvalidate(this);" enctype="multipart/form-data" >
 		<table>
 			<tr>
-				<td>아이디 : <input type="text" name="id" value=""  maxlength="12" /> <input type="button" value="중복확인" onclick="test();"/></td>
+				<td>아이디 : <input type="text" id="id" name="id" value=""  maxlength="12" /> <input type="button" value="중복확인" onclick="idcheck();"/></td>
 			</tr>
 			<tr>
 				<td>비밀번호 : <input type="password" name="password" value="" maxlength="12"/></td>

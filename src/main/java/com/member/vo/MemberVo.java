@@ -3,7 +3,7 @@ package com.member.vo;
 import java.util.Date;
 
 public class MemberVo {
-
+	 
 	  private String id;
 	  private String password;
 	  private String user_name;

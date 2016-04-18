@@ -247,6 +247,32 @@ function Content_delete(){
 	c_delete.action = "/c_delete";
 	c_delete.submit();
 }
+//------------------------------------
+
+
+
+
+
+function idcheck(){
+	
+	var data=new Object();
+	data.type=$("#id").attr("id");
+	data.value=$("#id").val();
+	var param =JSON.stringify(data);
+	console.log(param);
+	
+	var success = function(json){
+		console.log(json);
+		if(json.size>0){
+		
+			        	
+		}
+	}
+	_ajax("post","/ajax","json",param,success);
+}
+
+
+
 
 
 

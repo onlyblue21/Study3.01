@@ -30,14 +30,6 @@ import net.sf.json.JSONObject;
 @Controller
 public class MemberController {
 
-	private MemberController mcontroller = null; 
-	
-	MemberController(){
-		
-		MemberController mcontroller= new MemberController();
-		
-	}
-	
 	
 	@Resource(name="MemberService")
 	public MemberService memberservice; 

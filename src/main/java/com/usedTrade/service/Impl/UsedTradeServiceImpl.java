@@ -1,5 +1,7 @@
 package com.usedTrade.service.Impl;
 
+import java.util.List;
+
 import javax.annotation.Resource;
 
 import org.springframework.stereotype.Service;
@@ -16,5 +18,12 @@ public class UsedTradeServiceImpl implements UsedTradeService {
 	@Override
 	public int writeUsedTrade(UsedTradeVo usedTradeVO) {
 		return usedTradeDAO.writeUsedTrade(usedTradeVO);
+	}
+
+	@Override
+	public List<UsedTradeVo> listUsedTrade(int page, int rowsPerPage) throws Exception {
+		// TODO Auto-generated method stub
+		page = (page - 1) * rowsPerPage;
+		return usedTradeDAO.listUsedTrade(page, rowsPerPage);
 	}
 }

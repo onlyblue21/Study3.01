@@ -1,21 +1,26 @@
 package com.usedTrade.vo;
 
 import java.util.Date;
+import java.util.List;
+
+import com.member.vo.MemberVo;
 
 public class UsedTradeVo {
-
 	private int used_trade_seq;
-	private int member_seq;
+	private int member_seq;// ㄷ시
 	private String title;
 	private String content;
-	private Date reg_date;
-	private Date delete_date;
 	private int read_count;
 	private String trade_status;
-	private String del_yn;
 	private String used_trade_type;
 	private String location_code;
 	private int money;
+	private String del_yn;
+	private Date reg_date;
+	private Date delete_date;
+	
+	// 조회용 속성
+	private String reg_name;
 
 	public int getUsed_trade_seq() {
 		return used_trade_seq;
@@ -49,22 +54,6 @@ public class UsedTradeVo {
 		this.content = content;
 	}
 
-	public Date getReg_date() {
-		return reg_date;
-	}
-
-	public void setReg_date(Date reg_date) {
-		this.reg_date = reg_date;
-	}
-
-	public Date getDelete_date() {
-		return delete_date;
-	}
-
-	public void setDelete_date(Date delete_date) {
-		this.delete_date = delete_date;
-	}
-
 	public int getRead_count() {
 		return read_count;
 	}
@@ -79,14 +68,6 @@ public class UsedTradeVo {
 
 	public void setTrade_status(String trade_status) {
 		this.trade_status = trade_status;
-	}
-
-	public String getDel_yn() {
-		return del_yn;
-	}
-
-	public void setDel_yn(String del_yn) {
-		this.del_yn = del_yn;
 	}
 
 	public String getUsed_trade_type() {
@@ -111,6 +92,38 @@ public class UsedTradeVo {
 
 	public void setMoney(int money) {
 		this.money = money;
+	}
+
+	public String getDel_yn() {
+		return del_yn;
+	}
+
+	public void setDel_yn(String del_yn) {
+		this.del_yn = del_yn;
+	}
+
+	public Date getReg_date() {
+		return reg_date;
+	}
+
+	public void setReg_date(Date reg_date) {
+		this.reg_date = reg_date;
+	}
+
+	public Date getDelete_date() {
+		return delete_date;
+	}
+
+	public void setDelete_date(Date delete_date) {
+		this.delete_date = delete_date;
+	}
+
+	public String getReg_name() {
+		return reg_name;
+	}
+
+	public void setReg_name(String reg_name) {
+		this.reg_name = reg_name;
 	}
 
 }

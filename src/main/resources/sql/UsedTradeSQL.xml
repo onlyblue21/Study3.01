@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="UsedTrade">
+
 	<sql id="used_trade_column">
 		used_trade_seq
 		, member_seq
@@ -15,27 +16,35 @@
 		, location_code
 		, money
 	</sql>
-	<insert id="writeUsedTrade">
-		INSERT INTO used_trade (<include refid="used_trade_column"></include>)
-		VALUSE (
-			SELECT IFNULL(MAX(used_trade_seq),0) +1 FROM used_trade
-			, #{member_seq}
-			, #{title}
-			, #{content}
-			, #{reg_date}
-			, #{delete_date}
-			, #{read_count}
-			, #{trade_status}
-			, 'N'
-			, #{used_trade_type}
-			, #{location_code}
-			, #{money}
+
+	<insert id="writeUsedTrade" parameterType="com.usedTrade.vo.UsedTradeVo" useGeneratedKeys="true" keyColumn="used_trade_seq">
+		INSERT INTO used_trade (
+		<include refid="used_trade_column"></include>
 		)
-	
+		VALUSE (
+		SELECT IFNULL(MAX(used_trade_seq),0) +1 FROM used_trade
+		,
+		#{member_seq}
+		, #{title}
+		, #{content}
+		, #{reg_date}
+		, #{delete_date}
+		,
+		#{read_count}
+		, #{trade_status}
+		, 'N'
+		, #{used_trade_type}
+		,
+		#{location_code}
+		, #{money}
+		)
+
 	</insert>
-	<select id="listUsedTrade">
-		SELECT <include refid="used_trade_column"></include>
+	<select id="listUsedTrade" resultType="UsedTrade">
+		SELECT
+		<include refid="used_trade_column"></include>
 		FROM used_trade
 		WHERE del_yn = 'N'
+		LIMIT #{rowsPerPage} OFFSET #{page}
 	</select>
 </mapper>

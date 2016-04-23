@@ -3,11 +3,15 @@ package com.main.controller;
 import java.net.InetAddress;
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Enumeration;
 import java.util.Locale;
 import java.util.StringTokenizer;
 
 import javax.annotation.Resource;
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpSessionContext;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
@@ -53,6 +57,112 @@ public class MainController {
 		System.out.println("login");
 		System.out.println("id,pw 값 불러와서 로그인함");
 
+		HttpSession session = new HttpSession() {
+			
+			@Override
+			public void setMaxInactiveInterval(int arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void setAttribute(String arg0, Object arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void removeValue(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void removeAttribute(String arg0) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public void putValue(String arg0, Object arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public boolean isNew() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public void invalidate() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public String[] getValueNames() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Object getValue(String arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public HttpSessionContext getSessionContext() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public ServletContext getServletContext() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public int getMaxInactiveInterval() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public long getLastAccessedTime() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public String getId() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public long getCreationTime() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public Enumeration getAttributeNames() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Object getAttribute(String arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+		};
+		
+		
 		boolean _login = false;
 		_login = memberservice.Login(membervo);
 		System.out.println("_login = " + _login);

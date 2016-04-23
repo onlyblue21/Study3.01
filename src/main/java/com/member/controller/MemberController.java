@@ -9,6 +9,7 @@ import java.util.Properties;
 import java.util.UUID;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -21,7 +22,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.member.dao.MemberDao;
 import com.member.service.MemberService;
 import com.member.vo.MemberVo;
 
@@ -30,6 +30,14 @@ import net.sf.json.JSONObject;
 @Controller
 public class MemberController {
 
+	private MemberController mcontroller = null; 
+	
+	MemberController(){
+		
+		MemberController mcontroller= new MemberController();
+		
+	}
+	
 	
 	@Resource(name="MemberService")
 	public MemberService memberservice; 
@@ -65,11 +73,9 @@ public class MemberController {
 	}
 		
 		
-	
-	
-	
 	@RequestMapping(value = "/memberjoin_j", method = RequestMethod.POST)
 	public String memberjoin_j(@RequestParam("upload") MultipartFile mulpartfile, Model model, MemberVo membervo) throws Exception{
+		
 		
 		if(!membervo.getId().equals(null) || !membervo.getId().equals("") ){
 			
@@ -80,7 +86,7 @@ public class MemberController {
 		    
 		    System.out.println("CurrentTime = " + CurrentTime);
 		    System.out.println("파일PATH = "  + membervo.getFileupload());
-			memberservice.memberjoin(membervo);	
+			memberservice.memberjoin(membervo);
 //			memberservice.memberphoto(membervo);	//---- 아직 미완성
 			System.out.println("memberseq = " + membervo.getMember_seq());
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
@@ -93,6 +99,20 @@ public class MemberController {
 		
 		return "/main/MainR";
 	}
+	
+	    public HttpSession session(Model model, HttpSession session) {
+	        //HttpSession 객체를 매개변수로 받음
+	    	
+	        session.setAttribute("id", "admin");
+	        //session 객체에 admin이라는 값을 id라는 키로 저장
+	        
+	        model.addAttribute("className", this.getClass());
+	        //model 객체에 현재 클래스이름을 className이라는 키로 저장
+	        
+	        return  session;//포워딩
+	    }
+	
+	
 	
 	@RequestMapping(value="/passwordmail", method = RequestMethod.POST)
 	public String passwordmail(Model model, MemberVo membervo)throws Exception{

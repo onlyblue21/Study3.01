@@ -26,4 +26,13 @@ public class UsedTradeServiceImpl implements UsedTradeService {
 		page = (page - 1) * rowsPerPage;
 		return usedTradeDAO.listUsedTrade(page, rowsPerPage);
 	}
+	
+	/**
+	 * 중고 거래 1개 select
+	 * @param used_trade_seq
+	 * @return
+	 */
+	public UsedTradeVo selectUsedTrade(int used_trade_seq) throws Exception{
+		return new UsedTradeVo();
+	}
 }

@@ -22,8 +22,13 @@ public class DevelopServiceImpl implements DevelopService{
 	}
 	
 	@Override
-	public DevelopVo selectDevelop(DevelopVo developVo){
+	public DevelopVo selectDevelopByDevelopSeq(DevelopVo developVo){
 		return developDao.selectOne(developVo);
+	}
+	
+	@Override
+	public DevelopVo selectDevelop(DevelopVo developVo){
+		return developDao.selectDevelop(developVo);
 	}
 	
 	@Override

@@ -19,6 +19,10 @@ public class DevelopDao {
 	}
 
 	public DevelopVo selectOne(DevelopVo developVo){
+		return sqlSession.selectOne("Develop.selectDevelopByDevelopSeq", developVo);
+	}
+	
+	public DevelopVo selectDevelop(DevelopVo developVo){
 		return sqlSession.selectOne("Develop.selectDevelop", developVo);
 	}
 	

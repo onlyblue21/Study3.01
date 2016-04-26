@@ -7,6 +7,8 @@ import com.develop.vo.DevelopVo;
 public interface DevelopService {
 	List<DevelopVo> selectDevelopList(DevelopVo developVo);
 	
+	DevelopVo selectDevelopByDevelopSeq(DevelopVo developVo);
+	
 	DevelopVo selectDevelop(DevelopVo developVo);
 	
 	int updateDevelop(DevelopVo developVo);

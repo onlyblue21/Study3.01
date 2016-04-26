@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <header>
-	<h1><strong>KnJ</strong></h1>
+	<h1><strong><a href="/main">KnJ</a></strong></h1>
 	<div>
 		<input type="text" title="검색어"/>
-		<input type="submit" value="검색"/>
+		<input type="submit" value="검색" onClick="alert('검색하지마'); return false;"/>
 	</div>
 	
 	<nav>

@@ -17,7 +17,7 @@
      /* com.develop.dao.DevelopDao.selectDevelopList */
 	</select>
 
-	<select id="selectDevelop" parameterType="Develop" resultType="Develop">
+	<select id="selectDevelopByDevelopSeq" parameterType="Develop" resultType="Develop">
 		SELECT DEVELOP_SEQ
 			  ,MEMBER_SEQ
 			  ,TITLE
@@ -30,33 +30,47 @@
 		 FROM DEVELOP
 	    WHERE DEL_YN = 'N'
 	      AND DEVELOP_SEQ = #{developSeq}
+	    /* com.develop.dao.DevelopDao.selectDevelopByDevelopSeq */
+	</select>
+	
+	<select id="selectDevelop" parameterType="Develop" resultType="Develop">
+		SELECT DEVELOP_SEQ
+			  ,MEMBER_SEQ
+			  ,TITLE
+			  ,CONTENT
+			  ,REG_DATE
+			  ,UPDATE_DATE
+			  ,DELETE_DATE
+			  ,READ_COUNT
+			  ,DEL_YN
+		 FROM DEVELOP
+	    WHERE DEL_YN = 'N'
+	      AND MEMBER_SEQ = #{memberSeq}
+	      AND TITLE = #{title}
+	      AND CONTENT = #{content}
+	      AND REG_DATE = #{regDate}
 	    /* com.develop.dao.DevelopDao.selectDevelop */
 	</select>
 
 	<insert id="insertDevelop">
 		INSERT 
 		INTO DEVELOP (
-			 DEVELOP_SEQ
-			,MEMBER_SEQ
+			 MEMBER_SEQ
 			,TITLE
 			,CONTENT
 			,REG_DATE
 			,UPDATE_DATE
 			,READ_COUNT
 			)
-		VALUSE (
-			 #{developSeq}
-			,#{member_seq}
+		VALUES (
+			 #{memberSeq}
 			,#{title}
 			,#{content}
-			,SYSDATE
-			,SYSDATE
+			,NOW()
+			,NOW()
 			,0
 		)
 		/* com.develop.dao.DevelopDao.insertDevelop */
-		<selectKey keyProperty="developSeq" resultType="int" order="BEFORE">
-            SELECT SQ_DEVELOP_SEQ.NEXTVAL FROM DUAL
-        </selectKey>  
 	</insert>
 	
 	<update id="updateDevelop" parameterType="Develop">
@@ -64,7 +78,7 @@
 		   SET 
 		     TITLE = #{title}
 			,CONTENT = #{content}
-			,UPDATE_DATE = SYSDATE
+			,UPDATE_DATE = NOW()
 		WHERE DEVELOP_SEQ = #{developSeq}
 	</update>
 	
@@ -79,7 +93,7 @@
 		UPDATE DEVELOP
 		   SET 
 			 DEL_YN = 'Y'
-			,DELETE_DATE = SYSDATE
+			,DELETE_DATE = NOW()
 		WHERE DEVELOP_SEQ = #{developSeq}
 	</update>
 	

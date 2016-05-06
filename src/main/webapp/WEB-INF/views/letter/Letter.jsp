@@ -8,6 +8,7 @@
 
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 <jsp:include page="LetterLefter.jsp" />
 <script type="text/javascript">
 	$(function() {
@@ -37,5 +38,7 @@
 		<div id="pager">
 		</div>
 	</div>
+	
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

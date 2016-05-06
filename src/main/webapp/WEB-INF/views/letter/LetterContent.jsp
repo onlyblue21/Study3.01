@@ -10,6 +10,7 @@
 <title>${letterVo.content}</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 <jsp:include page="LetterLefter.jsp" />
 <div>
 	<input type="submit"  id="delete"  value="삭제" >
@@ -27,5 +28,7 @@
 						</tr>				
 				</table>
 		</div>
+	
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

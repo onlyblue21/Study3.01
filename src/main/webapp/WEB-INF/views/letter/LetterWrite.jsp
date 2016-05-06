@@ -7,6 +7,7 @@
 <title>받은쪽지함</title>
 </head>
 <body>
+<jsp:include page="/WEB-INF/views/common/header.jsp" />
 <jsp:include page="LetterLefter.jsp" />
 	<form id="letterWrite" action="letterWrite" method="post">
 		<input type="submit"  id="send"  value="보내기">
@@ -31,6 +32,6 @@
 		<label>이름></label>
 		<input type="text" id="member_name" name="member_name"  value="신신호">
 	</div>
-	
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
 </body>
 </html>

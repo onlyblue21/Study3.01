@@ -29,7 +29,7 @@
 			  ,DEL_YN
 		 FROM DEVELOP
 	    WHERE DEL_YN = 'N'
-	      AND DEVELOP_SEQ = #{developSeq}
+	      AND DEVELOP_SEQ = #{develop_seq}
 	    /* com.develop.dao.DevelopDao.selectDevelopByDevelopSeq */
 	</select>
 	
@@ -45,10 +45,10 @@
 			  ,DEL_YN
 		 FROM DEVELOP
 	    WHERE DEL_YN = 'N'
-	      AND MEMBER_SEQ = #{memberSeq}
+	      AND MEMBER_SEQ = #{member_seq}
 	      AND TITLE = #{title}
 	      AND CONTENT = #{content}
-	      AND REG_DATE = #{regDate}
+	      AND REG_DATE = #{reg_date}
 	    /* com.develop.dao.DevelopDao.selectDevelop */
 	</select>
 
@@ -63,7 +63,7 @@
 			,READ_COUNT
 			)
 		VALUES (
-			 #{memberSeq}
+			 #{member_seq}
 			,#{title}
 			,#{content}
 			,NOW()
@@ -79,14 +79,14 @@
 		     TITLE = #{title}
 			,CONTENT = #{content}
 			,UPDATE_DATE = NOW()
-		WHERE DEVELOP_SEQ = #{developSeq}
+		WHERE DEVELOP_SEQ = #{develop_seq}
 	</update>
 	
 	<update id="updateDevelopReadCount" parameterType="Develop">
 		UPDATE DEVELOP
 		   SET 
-		     READ_COUNT = ((SELECT READ_COUNT FROM DEVELOP WHERE DEVELOP_SEQ = #{developSeq}) + 1)
-		WHERE DEVELOP_SEQ = #{developSeq}
+		     READ_COUNT = ((SELECT READ_COUNT FROM DEVELOP WHERE DEVELOP_SEQ = #{develop_seq}) + 1)
+		WHERE DEVELOP_SEQ = #{develop_seq}
 	</update>
 	
 	<update id="deleteDevelop" parameterType="Develop">
@@ -94,7 +94,7 @@
 		   SET 
 			 DEL_YN = 'Y'
 			,DELETE_DATE = NOW()
-		WHERE DEVELOP_SEQ = #{developSeq}
+		WHERE DEVELOP_SEQ = #{develop_seq}
 	</update>
 	
 </mapper>

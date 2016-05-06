@@ -42,7 +42,7 @@ public class DevelopController {
      * @param model {@link Model}
      * @return 개발자 목록조회 jsp
      */
-	@RequestMapping(value="/{developSeq}")
+	@RequestMapping(value="/{develop_seq}")
 	public String selectDevelop(DevelopVo developVo, Model model) throws Exception{
 		model.addAttribute("developVo", developService.selectDevelopByDevelopSeq(developVo));
 		
@@ -73,7 +73,7 @@ public class DevelopController {
 	public String insertDevelop(DevelopVo developVo) throws Exception{
 		
 		// TODO 로그인정보 가져와야함
-		developVo.setMemberSeq(1);
+		developVo.setMember_seq(1);
 		
 		developService.insertDevelop(developVo);
 		
@@ -89,8 +89,10 @@ public class DevelopController {
      * @param model {@link Model}
      * @return 개발자 수정화면 jsp
      */
-	@RequestMapping(value="/{developSeq}/update", method=RequestMethod.GET)
+	@RequestMapping(value="/{develop_seq}/update", method=RequestMethod.GET)
 	public String updateDevelop(DevelopVo developVo, Model model) throws Exception{
+		developVo = developService.selectDevelopByDevelopSeq(developVo);
+		
 		model.addAttribute("developVo", developVo);
 		
 		return "/develop/DevelopCU";
@@ -103,14 +105,16 @@ public class DevelopController {
      * @param model {@link Model}
      * @return 개발자 상세조회 jsp
      */
-	@RequestMapping(value="/{developSeq}/update", method=RequestMethod.POST)
+	@RequestMapping(value="/{develop_seq}/update", method=RequestMethod.POST)
 	public String updateDevelop(DevelopVo developVo) throws Exception{
 		
 		// TODO 로그인정보 가져와야함
-		developVo.setMemberSeq(1);
+		developVo.setMember_seq(1);
 		
 		developService.updateDevelop(developVo);
 		
-		return "redirect:/develop/" + developVo.getDevelopSeq();
+		return "redirect:/develop/" + developVo.getDevelop_seq();
 	}
+	
+	
 }

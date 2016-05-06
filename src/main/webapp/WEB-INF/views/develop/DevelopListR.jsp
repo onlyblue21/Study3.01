@@ -37,10 +37,10 @@
 						<c:forEach var="developVo" items="${developList}" varStatus="status">
 							<tr>
 								<td>1</td>
-								<td><a href="/develop/${developVo.developSeq}">${developVo.title}</a></td>
-								<td>${developVo.memberSeq}</td>
-								<td><fmt:formatDate value="${developVo.regDate}" pattern="yyyy-MM-dd"/></td>
-								<td>${developVo.readCount}</td>
+								<td><a href="/develop/${developVo.develop_seq}">${developVo.title}</a></td>
+								<td>${developVo.member_seq}</td>
+								<td><fmt:formatDate value="${developVo.reg_date}" pattern="yyyy-MM-dd"/></td>
+								<td>${developVo.read_count}</td>
 							</tr>
 						</c:forEach>
 					</c:otherwise>

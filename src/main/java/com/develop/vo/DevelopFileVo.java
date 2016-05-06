@@ -3,32 +3,33 @@ package com.develop.vo;
 import java.util.Date;
 
 public class DevelopFileVo {
-	private int fileSeq;
-	public int getFileSeq() {
-		return fileSeq;
+	
+	public int getFile_seq() {
+		return file_seq;
 	}
-	public void setFileSeq(int fileSeq) {
-		this.fileSeq = fileSeq;
+	public void setFile_seq(int file_seq) {
+		this.file_seq = file_seq;
 	}
-	public Date getDeleteDate() {
-		return deleteDate;
+	public Date getDelete_date() {
+		return delete_date;
 	}
-	public void setDeleteDate(Date deleteDate) {
-		this.deleteDate = deleteDate;
+	public void setDelete_date(Date delete_date) {
+		this.delete_date = delete_date;
 	}
-	public String getDelYn() {
-		return delYn;
+	public String getDel_yn() {
+		return del_yn;
 	}
-	public void setDelYn(String delYn) {
-		this.delYn = delYn;
+	public void setDel_yn(String del_yn) {
+		this.del_yn = del_yn;
 	}
-	public int getDevelopSeq() {
-		return developSeq;
+	public int getDevelop_seq() {
+		return develop_seq;
 	}
-	public void setDevelopSeq(int developSeq) {
-		this.developSeq = developSeq;
+	public void setDevelop_seq(int develop_seq) {
+		this.develop_seq = develop_seq;
 	}
-	private Date deleteDate;
-	private String delYn;
-	private int developSeq;
+	private int file_seq;
+	private Date delete_date;
+	private String del_yn;
+	private int develop_seq;
 }

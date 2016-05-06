@@ -24,8 +24,8 @@
 		</tbody>
 	</table>
 	
-	<form:form id="submitForm" action="/develop/${developVo.developSeq}/delete" method="POST">
-		<a href="/develop/${developVo.developSeq}/update">수정</a>
+	<form:form id="submitForm" action="/develop/${developVo.develop_seq}/delete" method="POST">
+		<a href="/develop/${developVo.develop_seq}/update">수정</a>
 		<input type="submit" value="삭제" onclick="return confirm('삭제하시겠습니까?')"/>
 		<a href="/develop">목록</a>
 	</form:form>

@@ -20,7 +20,23 @@
 				]]>
 	</select>
 	
-	<select id="ajaxselect" parameterType="member">
+	<select id="memberInfo" parameterType="Member" resultType="HashMap">
+		
+			SELECT 
+					*
+			FROM
+					MEMBER
+			WHERE
+				ID = #{id}
+				AND 
+				PASSWORD = #{password}
+	
+	</select>
+	
+	
+	
+	
+	<select id="ajaxselect" parameterType="Member">
 		SELECT 
 			ID
 		FROM

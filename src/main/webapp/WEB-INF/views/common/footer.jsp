@@ -12,4 +12,5 @@
             <p class="copyright">Copyright (c) <span>study.com</span> All Rights reserved. </p>
         </div>
     </div>
+    
 </footer>

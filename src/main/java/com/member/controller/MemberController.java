@@ -42,7 +42,7 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value = "/memberJoin", method = RequestMethod.POST)
+	@RequestMapping(value = "/memberJoin", method = RequestMethod.GET)
 	public String memberjoin(Model model) {
 		
 			System.out.println("회원가입 Page이동!");
@@ -91,19 +91,6 @@ public class MemberController {
 		
 		return "/main/MainR";
 	}
-	
-	    public HttpSession session(Model model, HttpSession session) {
-	        //HttpSession 객체를 매개변수로 받음
-	    	
-	        session.setAttribute("id", "admin");
-	        //session 객체에 admin이라는 값을 id라는 키로 저장
-	        
-	        model.addAttribute("className", this.getClass());
-	        //model 객체에 현재 클래스이름을 className이라는 키로 저장
-	        
-	        return  session;//포워딩
-	    }
-	
 	
 	
 	@RequestMapping(value="/passwordmail", method = RequestMethod.POST)
@@ -175,5 +162,34 @@ public class MemberController {
 		 }
 	}
 
+	//mypage
+	@RequestMapping(value="mypage", method = RequestMethod.POST)
+	private String mypage(Model model, MemberVo membervo)throws Exception{
+		
+		System.out.println("mypage 이동");
+		
+		
+		return "/member/Mypage";
+	}
+	
+	
+	//mypagemodify
+	@RequestMapping(value ="mypagemodify", method = RequestMethod.POST)
+	private String mypagemodify(Model model, MemberVo membervo) throws Exception{
+		
+		System.out.println("modify");
+		
+		
+		return "/member/MypageModify";
+	}
+		
+	
+	
+	
+	
+	
+	
+	
+	
 	
 }

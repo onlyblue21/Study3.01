@@ -14,9 +14,9 @@ function Joinpage(actionfrm) {
 }
 
 //----------------------------profile------------------------------------------
-function profile(){
+function mypage(){
 	var mainfrm = document.mainfrm;
-	mainfrm.action = "/profile";
+	mainfrm.action = "/mypage";
 	mainfrm.submit();
 }
 
@@ -28,18 +28,17 @@ function profileconfim(){
 	
 }
 
+function mypageModefy(){
+	var mypagefrm = document.mypagefrm;
+	mypagefrm.action ="mypagemodify";
+	mypagefrm.submit();
+}
+
 
 
 
 
 //----------------------------profile------------------------------------------
-
-//----------------------------로그인,회원가입--------------------------------------------
-function memberJoin(){
-	var mainfrm = document.mainfrm;
-	mainfrm.action = "/memberJoin";
-	mainfrm.submit();
-}
 
 
 

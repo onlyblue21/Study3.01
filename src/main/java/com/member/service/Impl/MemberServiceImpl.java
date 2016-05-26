@@ -2,12 +2,12 @@ package com.member.service.Impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.letter.vo.LetterVo;
 import com.member.dao.MemberDao;
 import com.member.service.MemberService;
 import com.member.vo.MemberVo;
@@ -42,6 +42,10 @@ public class MemberServiceImpl implements MemberService{
 		return memberdao.ajaxseelct(key);
 	}
 
+	@Override
+	public List<MemberVo> memberInfo(MemberVo membervo) throws Exception{
+		return memberdao.memberInfo(membervo);
+	}
 
 	
 }

@@ -8,7 +8,6 @@
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		alert('test====');
 		
 		$("#password").keyup(function() {
 			if($("#password").val() != $("#password2").val()) {

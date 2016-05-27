@@ -31,11 +31,10 @@
 				$("#passwordmsg").html('암호가 일치 합니다.');
 			}
 		});
-	});
 	
-		 $("#id").keypass(function(){
-				alert('test222');
-			if($("#id").val() != null){ㄱ
+	
+		 $("#id").keyup(function(){
+			if($("#id").val() != null){
 				alert($("#id").val());
 				$("#result").text('');
 				$("#result").html('test');
@@ -56,7 +55,10 @@
 					}
 				)
 			}
-		}); 
+		}); //id end
+		 
+		 
+	});//ready end
 		 
 /* 	if($("#id").val() != ""){
         $("#id").keyup();

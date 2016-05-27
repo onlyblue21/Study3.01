@@ -4,36 +4,35 @@
 <html>
 <head>
 <title>회원가입</title>
-
+<script src="/js/member.js" type="text/javascript">
 <script type="text/javascript">
 
 	$(document).ready(function() {
-		$(document).ready(function(){
-		    $('#id').keyup(function(){
-		        if ( $('#id').val().length > 6) {
-		        	alrt()
-		            var id = $(this).val();
-		            // ajax 실행
-		            $.ajax({
-		                type : 'POST',
-		                url : '/main/id_check',
-		                data:
-		                {
-		                    id: id
-		                },
-		                success : function(result) {
-		                    //console.log(result);
-		                    if (result == "ok") {
-		                        $("#result_id_msg").html("사용 가능한 아이디 입니다.");
-		                    } else {
-		                        $("#result_id_msg").html("사용 불가능한 아이디 입니다.");
-		                    }
-		                }
-		            }); // end ajax
-		        }
-		    }); // end keyup
+		$("#id").keypass(function(){
+				
+			if($("#id").val() != null){ㄱ
+				alert($("#id").val());
+				$("#result").text('');
+				$("#result").html('test');
+				$.ajax
+				(
+					{
+						url:"/id_check",
+						type: "POST",
+						data : ("#id").val(),
+						success:function(data)
+						{
+							$("#result").html(data);	
+						},
+						error:function(data)
+						{
+							alert("error");
+						}
+					}
+				)
+			}
 		});
-
+		
 		
 		
 		

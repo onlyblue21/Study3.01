@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="/js/member.js" type="text/javascript"></script>
-<script src="/js/jquery-1.12.1.js" type="text/javascript">
+<script src="/js/member.js" type="text/javascript">
 	window.onloda = function check() {
 		var check = "${login}";
 		var membercheck = "${member}";

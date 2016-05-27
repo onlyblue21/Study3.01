@@ -1,85 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<title>회원가입</title>
-<script src="/js/member.js" type="text/javascript"></script>
-<script type="text/javascript">
-
-	$(document).ready(function() {
-		alert('test====');
-		
-		$("#password").keyup(function() {
-			if($("#password").val() != $("#password2").val()) {
-				$("#passwordmsg").css('color','RED');
-				$("#passwordmsg").text('');
-				$("#passwordmsg").html('암호가 일치 하지 않습니다.');
-			}else {
-				$("#passwordmsg").css('color','#00FF24');
-				$("#passwordmsg").text('');
-				$("#passwordmsg").html('암호가 일치 합니다.');
-			}
-		});
-		$("#password2").keyup(function() {
-			if($("#password").val() != $("#password2").val()) {
-				$("#passwordmsg").css('color','RED');
-				$("#passwordmsg").text('');
-				$("#passwordmsg").html('암호가 일치 하지 않습니다.');
-			}else {
-				$("#passwordmsg").css('color','#00FF24');
-				$("#passwordmsg").text('');
-				$("#passwordmsg").html('암호가 일치 합니다.');
-			}
-		});
-	});
-	
-		 $("#id").keypass(function(){
-				alert('test222');
-			if($("#id").val() != null){ㄱ
-				alert($("#id").val());
-				$("#result").text('');
-				$("#result").html('test');
-				$.ajax
-				(
-					{
-						url:"/id_check",
-						type: "POST",
-						data : ("#id").val(),
-						success:function(data)
-						{
-							$("#result").html(data);	
-						},
-						error:function(data)
-						{
-							alert("error");
-						}
-					}
-				)
-			}
-		}); 
-		 
-/* 	if($("#id").val() != ""){
-        $("#id").keyup();
-    };
-    
-    $("#id").keyup(function(){
-        $.post("<c:url value='/membercheck'/>"
-                ,{"id" : $("#id").val()}
-                , function(data){
-                console.log(data);
-            
-            if(data =="true"){
-                $("#result").text("이미사용중인 아이디입니다.")
-            }else{
-                $("#result").text("사용가능한 아이디입니다.")
-            }
-        });
-    })
- */
- </script>
-
-
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Mypage Modify</title>
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -89,13 +12,13 @@
 			onsubmit="return joinvalidate(this);" enctype="multipart/form-data">
 			<fieldset>
 				<div id="legend">
-					<legend>회원 가입</legend>
+					<legend>회원 정보 수정</legend>
 				</div>
 				<!-- 아이디 -->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="id">아이디</label>
 					<div class="col-sm-3">
-						<input type="text" id="id" name="id" placeholder="아이디"
+						<input type="text" id="id" name="id" placeholder="아이디" readonly value="${memberInfo.id}"
 							class="form-control" maxlength="12" minlength="8" required>
 					</div>
 					<span class="col-sm-3" id="result"></span>
@@ -105,7 +28,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="password">비밀번호</label>
 					<div class="col-sm-3">
-						<input type="password" id="password" name="password"
+						<input type="password" id="password" name="password" value="${memberInfo.password}"
 							placeholder="비밀번호" class="form-control" maxlength="12"
 							minlength="8" required>
 					</div>
@@ -115,7 +38,7 @@
 					<label class="control-label col-sm-2" for="password">비밀번호
 						확인</label>
 					<div class="col-sm-3">
-						<input type="password" id="password2" name="password2"
+						<input type="password" id="password2" name="password2" value="${memberInfo.password}"
 							placeholder="비밀번호" class="form-control" maxlength="12"
 							minlength="8" required>
 					</div>
@@ -126,9 +49,9 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="user_name">이름</label>
 					<div class="col-sm-3">
-						<input type="text" id="user_name" name="user_name"
+						<input type="text" id="user_name" name="user_name" value="${memberInfo.user_name}"
 							placeholder="이름" class="form-control" maxlength="8" minlength="2"
-							required>
+							required readonly>
 					</div>
 				</div>
 
@@ -136,7 +59,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="nick_name">닉네임</label>
 					<div class="col-sm-3">
-						<input type="text" id="nick_name" name="nick_name"
+						<input type="text" id="nick_name" name="nick_name" value="${memberInfo.nick_name}"
 							placeholder="닉네임" class="form-control" maxlength="8"
 							minlength="4" required>
 					</div>
@@ -145,7 +68,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="email">이메일</label>
 					<div class="col-sm-3">
-						<input type="text" id="email" name="email" placeholder="이메일"
+						<input type="text" id="email" name="email" placeholder="이메일" value="${memberInfo.email}"
 							class="form-control" maxlength="30" required>
 					</div>
 				</div>
@@ -155,7 +78,7 @@
 					<label class="control-label col-sm-2" for="phone_num">핸드폰
 						번호</label>
 					<div class="col-sm-3">
-						<input type="text" id="phone_num" name="phone_num"
+						<input type="text" id="phone_num" name="phone_num" value="${memberInfo.phone_num}"
 							placeholder="핸드폰 번호" class="form-control" minlength="11"
 							maxlength="13" required>
 					</div>
@@ -165,28 +88,11 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="address">주소</label>
 					<div class="col-sm-3">
-						<input type="text" id="address" name="address" placeholder="주소"
+						<input type="text" id="address" name="address" placeholder="주소" value="${memberInfo.address}"
 							class="form-control" maxlength="32" required>
 					</div>
 				</div>
 
-				<!-- 생년월일 -->
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="birth">생년월일</label>
-					<div class="col-sm-3">
-						<input type="text" id="birth" name="birth" placeholder="생년월일"
-							class="form-control" maxlength="8" minlength="8" required>
-					</div>
-				</div>
-
-				<!-- 성별 -->
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="sex">성별</label>
-					<div class="col-sm-3">
-						<input type="radio" name="sex" value="M"> 남자: <input
-							type="radio" name="sex" value="F"> 여자
-					</div>
-				</div>
 
 				<!-- 프로필 사진 -->
 				<div class="form-group">
@@ -203,22 +109,6 @@
 						<select name="city">
 							<option value="korea">한국</option>
 							<option value="japan">일본</option>
-						</select>
-					</div>
-					<div class="col-sm-3"></div>
-				</div>
-
-				<!-- 국적 -->
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="live_nationality">국적</label>
-					<div class="col-sm-3">
-						<select name="live_nationality">
-							<option value="SouthKorea">한국</option>
-							<option value="japan">일본</option>
-							<option value="Canada">캐나다</option>
-							<option value="America">미국</option>
-							<option value="NorthKorea">북한</option>
-							<option value="China">중국</option>
 						</select>
 					</div>
 					<div class="col-sm-3"></div>
@@ -266,7 +156,8 @@
 				<div class="form-group">
 					<!-- Button -->
 					<div class="col-sm-3 col-sm-offset-2">
-						<input type="submit" value="가입하기" class="btn btn-success" />
+						<input type="submit" value="수정" class="btn btn-success" />
+						<input type="button" value="취소" class="btn btn-success" onclick="javascript:history.back()">
 					</div>
 				</div>
 			</fieldset>

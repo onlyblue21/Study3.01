@@ -39,4 +39,12 @@ public class MemberDao {
 	public List<MemberVo> memberInfo(MemberVo membervo){
 		return sqlSession.selectList("memberInfo", membervo);
 	}
+	
+	public boolean checkId(String userId)throws Exception{
+		int checkId =  sqlSession.selectOne("checkId",userId);
+		return checkId < 1 ? false : true;
+	}
+	
+	
+	
 }

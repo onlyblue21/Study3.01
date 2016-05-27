@@ -32,6 +32,16 @@
 				PASSWORD = #{password}
 	
 	</select>
+	<select id="checkId" parameterType="String" resultType="int">
+		
+			SELECT 
+					COUNT(1)
+			FROM
+					MEMBER
+			WHERE
+				ID = #{id}
+	
+	</select>
 	
 	
 	

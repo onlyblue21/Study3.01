@@ -54,14 +54,10 @@ public class MainController {
 		boolean _login = false;
 
 		_login = memberservice.Login(membervo);
-//		System.out.println("_login = " + _login);
-//		System.out.println("mainvoid = " + membervo.getId());
-//		System.out.println("mainvopw = " + membervo.getPassword());
 		if (_login) {
 			//세션에 모든 정보 담을거임
 			List<MemberVo> memberInfo = memberservice.memberInfo(membervo);
 			
-//			System.out.println("member_city = " + memberInfo.get(0));
 			session.setAttribute("memberInfo", memberInfo.get(0));
 			System.out.println("LOGIN 성공");
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");

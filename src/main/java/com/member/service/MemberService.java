@@ -17,5 +17,6 @@ public interface MemberService {
 	
 	public List<MemberVo> memberInfo(MemberVo membervo) throws Exception;
 	
+	public boolean checkId(String userId) throws Exception;
 	
 }

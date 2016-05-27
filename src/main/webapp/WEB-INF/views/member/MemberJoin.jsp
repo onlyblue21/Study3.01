@@ -33,29 +33,34 @@
 		});
 	
 	
-		 $("#id").keyup(function(){
-			if($("#id").val() != null){
-				alert($("#id").val());
-				$("#result").text('');
-				$("#result").html('test');
-				$.ajax
-				(
-					{
-						url:"/id_check",
-						type: "POST",
-						data : ("#id").val(),
-						success:function(data)
-						{
-							$("#result").html(data);	
-						},
-						error:function(data)
-						{
-							alert("error");
+// 		$("#action-button").click(function(){
+		$("#id").keyup(function(){
+			var id = $("#id").val();
+			
+			$.ajax({
+				url:"/id_check",
+				type:'GET',
+				data: {"id":id},
+				
+				error:function(data){
+					alert(data);					
+					$("#info").html("error");
+				},
+				
+				success:function(data){
+					if(data =="true"){
+						$("#info").css('color','red');
+						$("#info").html("같은 ID가 이미 사용중입니다.");	
+					}else{
+						$("#info").css('color','#00FF24');	
+						$("#info").html('사용할수 있는 ID입니다.');	
 						}
-					}
-				)
-			}
-		}); //id end
+					},
+				});
+			});		//id end
+				
+		
+		
 		 
 		 
 	});//ready end
@@ -98,6 +103,9 @@
 					<div class="col-sm-3">
 						<input type="text" id="id" name="id" placeholder="아이디"
 							class="form-control" maxlength="12" minlength="8" required>
+						<!-- test start -->
+						<div id="info"></div>
+						<!-- end -->
 					</div>
 					<span class="col-sm-3" id="result"></span>
 				</div>

@@ -46,6 +46,11 @@ public class MemberServiceImpl implements MemberService{
 	public List<MemberVo> memberInfo(MemberVo membervo) throws Exception{
 		return memberdao.memberInfo(membervo);
 	}
-
+	
+	@Override
+	public boolean checkId(String userId) throws Exception{
+		return memberdao.checkId(userId);
+	}
+	
 	
 }

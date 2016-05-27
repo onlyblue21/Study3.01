@@ -4,19 +4,18 @@ import java.io.File;
 import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Properties;
 import java.util.UUID;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -50,18 +49,19 @@ public class MemberController {
 	}
 	
 	
-	@RequestMapping(value = "/ajax", method = RequestMethod.POST)
-	public void ajaxTest(Model model, @RequestBody String param){
-		JSONObject json = JSONObject.fromObject(param);
-		System.out.println("@@@@@@@@@@@@@@@@@@@@@@@");
+	@RequestMapping(value = "/id_check", method = RequestMethod.GET)
+	public String id_check(@RequestParam(value="id") String userId, HttpServletResponse res  ) throws Exception{
+//		JSONObject json = new JSONObject();
+//		ajaxtest = memberservice.ajaxseelct(json.get("type").toString(), json.get("value").toString());
+		boolean checkId = true;
+		checkId = memberservice.checkId(userId);
 		
-		try{
-		ArrayList ajaxtest = new ArrayList();
-		ajaxtest = memberservice.ajaxseelct(json.get("type").toString(), json.get("value").toString());
 		
-		}catch(Exception ex){
-			ex.printStackTrace();
-		}
+		System.out.println("checkId= " + checkId);
+		System.out.println("id===" + userId);
+		
+		
+		return "";
 	}
 		
 		

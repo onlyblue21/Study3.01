@@ -65,24 +65,6 @@
 		 
 	});//ready end
 		 
-/* 	if($("#id").val() != ""){
-        $("#id").keyup();
-    };
-    
-    $("#id").keyup(function(){
-        $.post("<c:url value='/membercheck'/>"
-                ,{"id" : $("#id").val()}
-                , function(data){
-                console.log(data);
-            
-            if(data =="true"){
-                $("#result").text("이미사용중인 아이디입니다.")
-            }else{
-                $("#result").text("사용가능한 아이디입니다.")
-            }
-        });
-    })
- */
  </script>
 
 

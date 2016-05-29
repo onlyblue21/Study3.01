@@ -14,6 +14,7 @@
 				<div id="legend">
 					<legend>회원 정보 수정</legend>
 				</div>
+				
 				<!-- 아이디 -->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="id">아이디</label>

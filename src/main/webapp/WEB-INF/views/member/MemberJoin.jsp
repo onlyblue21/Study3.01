@@ -7,6 +7,7 @@
 <script src="/js/member.js" type="text/javascript"></script>
 <script type="text/javascript">
 
+
 	$(function() {
 		
 		$("#password").keyup(function() {
@@ -54,6 +55,8 @@
 					if(data){
 						$("#result").css('color','red');
 						$("#result").html("같은 ID가 이미 사용중입니다.");	
+						document.memberjoin.id.focus();
+						return false;
 					}else{
 						$("#result").css('color','#00FF24');	
 						$("#result").html('사용할수 있는 ID입니다.');	
@@ -63,21 +66,15 @@
 				
 			}else if(length < 3){
 				$("#result").css('color','red');
-				$("#result").html('4글자 이상.')
-			}
+				$("#result").html('4글자 이상 입력하세요.')
+			}	//length if end
 			
-			//if end
+			
 		});		//id end
-				
-		
-		
-		 
 		 
 	});//ready end
 		 
  </script>
-
-
 </head>
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
@@ -87,7 +84,7 @@
 			onsubmit="return joinvalidate(this);" enctype="multipart/form-data">
 			<fieldset>
 				<div id="legend">
-					<legend>회원 가입</legend>
+					<legend>로그인</legend>
 				</div>
 				<!-- 아이디 -->
 				<div class="form-group">
@@ -200,7 +197,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="city">거주지역</label>
 					<div class="col-sm-3">
-						<select name="city">
+						<select  name="city">
 							<option value="korea">한국</option>
 							<option value="japan">일본</option>
 						</select>

@@ -24,55 +24,57 @@
 	<div class="listItem1">
 		<div class="col" style="float: left">
 			<a href="/letter">쪽지조회</a>
+			<br>
 		</div>
-		<br /> <br />
+	</div>
+	<div class="container-fluid">
+		<form role="form" name="mainfrm" action="/main/login" method="post"
+			class="form-horizontal" onsubmit="return joinvalidate(this);">
+			<fieldset>
+				<c:choose>
+					<c:when test="${LoginResult == 'SUCCESS'}">
+					<br>${LOGIN_RESULT}
+					<div class="form-group">
+					<div class="col-sm-3">
+							<input class="btn btn-success" type="button" title="MY PAGE" value="MY PAGE" onclick="mypage();"> 
+							<input class="btn btn-cancle" type="button" title="logout" value="로그 아웃" onclick="logout()" />
+						</div>
+						</div>
+						
+					</c:when>
+					<c:otherwise>
+						<!-- 아이디 -->
+						<div class="form-group">
+							<label class="control-label col-sm-1" for="id">아이디</label>
+							<div class="col-sm-3">
+								<input type="text" id="id" name="id" placeholder="아이디"
+									class="form-control" maxlength="12" minlength="4" required>
+							</div>
+							<span class="col-sm-3" id="result"></span>
+						</div>
 
-		<div class="left">
-			<div class="login">
-				<form name="mainfrm" action="/main/login" method="post">
-					<table>
-						<tr>
-							<td><c:choose>
+						<!-- 비밀번호 -->
+						<div class="form-group">
+							<label class="control-label col-sm-1" for="password">비밀번호</label>
+							<div class="col-sm-3">
+								<input type="password" id="password" name="password" 
+								placeholder="비밀번호" class="form-control" maxlength="12" minlength="8" required> 
+								
+								<a href="/memberJoin" title="회원가입">회원가입</a>&nbsp;&nbsp; 
+									<a href="#" title="ID/PW찾기">ID/PW 찾기</a>
 
-									<c:when test="${LoginResult == 'SUCCESS'}">
-										<tr>
-											<td>${LOGIN_RESULT}</td>
-										</tr>
-										<tr>
-											<td><input type="button" title="MY PAGE" value="MY PAGE"
-												onclick="mypage();"> <br></td>
-										</tr>
-										<tr>
-											<td><input type="button" title="logout" value="로그 아웃"
-												onclick="logout()" /></td>
-										</tr>
-									</c:when>
-									<c:otherwise>
-										<tr>
-											<td>아이디 : <input type="text" name="id" title="아이디"
-												value="" /></td>
-											<td rowspan="2"><input type="submit" value="로그인"
-												title="로그인" /></td>
-										</tr>
-										<tr>
-											<td>pw : <input type="password" name="password"
-												title="비밀번호" value="" /></td>
-										</tr>
-										<tr>
-											<td><a href="/memberJoin" title="회원가입">회원가입</a>&nbsp;&nbsp;
-												<a href="#" title="ID/PW찾기">ID/PW 찾기</a></td>
-										</tr>
-									</c:otherwise>
-								</c:choose></td>
-						</tr>
-
-					</table>
-				</form>
-			</div>
-
-			<!-- 광고 배너 링크 추가 -->
-		</div>
-
-		<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+							</div>
+							<div class="col-sm-2">
+								<input class="btn btn-cancle" type="submit" value="로그인" title="로그인" />
+							</div>
+						</div>
+					</c:otherwise>
+				</c:choose>
+			</fieldset>
+		</form>
+	</div>
+	<div class="col-sm-3 col-sm-offset-1">
+	<jsp:include page="/WEB-INF/views/common/footer.jsp" />
+	</div>
 </body>
 </html>

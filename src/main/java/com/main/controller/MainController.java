@@ -49,6 +49,7 @@ public class MainController {
 	}
 
 
+
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Model model, MemberVo membervo, HttpSession session) throws Exception {
 		boolean _login = false;

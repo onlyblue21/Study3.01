@@ -9,6 +9,7 @@ import java.util.UUID;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -20,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.ModelAndView;
 
 import com.member.service.MemberService;
 import com.member.vo.MemberVo;
@@ -33,13 +33,6 @@ public class MemberController {
 	public MemberService memberservice; 
 	
 	
-	@RequestMapping(value = "/logout")
-	public String logout(Model model){
-		
-		return "/main/MainR";
-	}
-	
-	
 	@RequestMapping(value = "/memberJoin", method = RequestMethod.GET)
 	public String memberjoin(Model model) {
 		
@@ -47,6 +40,14 @@ public class MemberController {
 			return "/member/MemberJoin";
 	}
 	
+	
+	@RequestMapping(value = "/logout")
+	public String logout(Model model, HttpSession session){
+		
+		//모든 세션삭제  
+		session.invalidate();
+		return "/main/MainR";
+	}
 	
 	@RequestMapping(value = "/id_check", method = RequestMethod.GET)
 	@ResponseBody
@@ -188,7 +189,7 @@ public class MemberController {
 		
 		return "/member/Mypage";
 	}
-	
+
 	
 	//mypagemodify
 	@RequestMapping(value ="/mypagemodify", method = RequestMethod.POST)

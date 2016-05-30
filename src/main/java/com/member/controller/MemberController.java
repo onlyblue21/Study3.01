@@ -41,6 +41,24 @@ public class MemberController {
 	}
 	
 	
+	//회원탈퇴
+	@RequestMapping(value="/memberdelete", method = RequestMethod.POST)
+	public String memberdelete(Model model, MemberVo membervo){
+		
+		
+		
+		
+		
+		
+		return "";
+	}
+	
+	
+	
+	
+	
+	
+	
 	@RequestMapping(value = "/logout")
 	public String logout(Model model, HttpSession session){
 		

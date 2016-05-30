@@ -11,7 +11,7 @@ mypage
 </h1>
 <h3> session = ${memberInfo.live_nationality}</h3>
 
-     <form name="mypagefrm" action="/main" method="POST" >
+     <form name="mypagefrm" action="/memberdelete" method="POST" >
      <div align="center">
 		 <table border="2" width=250 bordercolor="green" cellspacing="2"
         	bordercolor="green">
@@ -42,8 +42,9 @@ mypage
             </tr>
             <tr>
 	            <td align="center" colspan=2>
-	           		<input type="button" value="확인 " onclick="javascript:history.back()">
-	            	<input type="button" value="수정" onclick="mypageModefy()"> 
+	           		<input class="btn btn-success" type="button" value="확인 " onclick="javascript:history.back()">
+	            	<input class="btn btn-success" type="button" value="수정" onclick="mypageModefy()"> 
+	            	<input class="btn btn-cancle" type="submit" value="회원탈퇴">
 	            </td>
             </tr>
 	    </table>

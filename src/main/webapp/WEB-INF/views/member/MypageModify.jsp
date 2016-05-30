@@ -99,15 +99,15 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="upload">프로필 사진</label>
 					<div class="col-sm-3">
-						<input type="file" name="upload" />
+						<input type="file" name="upload" value="${memberInfo.upload}" />
 					</div>
 				</div>
 
 				<!-- 거주지역 -->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="city">거주지역</label>
-					<div class="col-sm-3">
-						<select name="city">
+					<div class="col-sm-3">${memberInfo.city}
+						<select name="city" value="${memberInfo.city}">
 							<option value="korea">한국</option>
 							<option value="japan">일본</option>
 						</select>
@@ -118,8 +118,8 @@
 				<!-- 직업 -->
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="job">직업</label>
-					<div class="col-sm-3">
-						<select name="job">
+					<div class="col-sm-3">${memberInfo.job}
+						<select name="job" value="${memberInfo.job}">
 							<option value="IT">IT</option>
 							<option value="의료">의료</option>
 							<option value="소방">소방</option>
@@ -151,7 +151,7 @@
 				<div class="form-group">
 					<label class="control-label col-sm-2" for="introduction">자기소개</label>
 					<div class="col-sm-3">
-						<textarea rows="10" cols="60" name="introduction" maxlength="5000"></textarea>
+						<textarea rows="10" cols="60" name="introduction" maxlength="3000"></textarea>
 					</div>
 				</div>
 				<div class="form-group">

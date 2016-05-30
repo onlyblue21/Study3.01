@@ -30,7 +30,7 @@ function profileconfim(){
 
 function mypageModefy(){
 	var mypagefrm = document.mypagefrm;
-	mypagefrm.action ="mypagemodify";
+	mypagefrm.action ="/mypagemodify";
 	mypagefrm.submit();
 }
 
@@ -41,9 +41,22 @@ function mypageModefy(){
 //----------------------------profile------------------------------------------
 
 
+//----------------------------memberdelete-------------------------------------
+function memberdelete(){
+	
+}
+
+
+
+
+
+//-----------------------------------------------------------------------------
+
+
 
 
 //----------------------------Login--------------------------------------------
+
 
 function joinvalidate() {
 	

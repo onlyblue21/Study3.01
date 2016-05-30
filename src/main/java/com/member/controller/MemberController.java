@@ -8,7 +8,6 @@ import java.util.Properties;
 import java.util.UUID;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
@@ -19,12 +18,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.member.service.MemberService;
 import com.member.vo.MemberVo;
-
-import net.sf.json.JSONObject;
 
 @Controller
 public class MemberController {
@@ -50,19 +49,38 @@ public class MemberController {
 	
 	
 	@RequestMapping(value = "/id_check", method = RequestMethod.GET)
-	public String id_check(@RequestParam(value="id") String userId, HttpServletResponse res  ) throws Exception{
+	@ResponseBody
+	public boolean id_check(@RequestParam(value="id") String userId, Model model, HttpServletResponse res ) throws Exception{
+		boolean checkId = true;
+		
+		checkId = memberservice.checkId(userId);
+		
+		System.out.println("checkId= " + checkId);
+		System.out.println("id===" + userId);
+		
+		return checkId;
+	}
+	
+	
+/*	@RequestMapping(value = "/id_check", method = RequestMethod.GET)
+	public String id_check(@RequestParam(value="id") String userId, Model model, HttpServletResponse res  ) throws Exception{
 //		JSONObject json = new JSONObject();
 //		ajaxtest = memberservice.ajaxseelct(json.get("type").toString(), json.get("value").toString());
 		boolean checkId = true;
 		checkId = memberservice.checkId(userId);
 		
+		JSONArray aa = new JSONArray();
+		
+		model.addAttribute("paramsList", JSONArray.fromObject("true").toString() );
 		
 		System.out.println("checkId= " + checkId);
 		System.out.println("id===" + userId);
 		
+		model.addAttribute("id", "true");
 		
-		return "";
-	}
+		
+		return "true";
+	}*/
 		
 		
 	@RequestMapping(value = "/memberjoin_j", method = RequestMethod.POST)
@@ -87,7 +105,6 @@ public class MemberController {
 		}else{
 			System.out.println("id가 널일경우");
 		}
-		
 		
 		return "/main/MainR";
 	}
@@ -163,7 +180,7 @@ public class MemberController {
 	}
 
 	//mypage
-	@RequestMapping(value="mypage", method = RequestMethod.POST)
+	@RequestMapping(value="/mypage", method = RequestMethod.POST)
 	private String mypage(Model model, MemberVo membervo)throws Exception{
 		
 		System.out.println("mypage 이동");
@@ -174,7 +191,7 @@ public class MemberController {
 	
 	
 	//mypagemodify
-	@RequestMapping(value ="mypagemodify", method = RequestMethod.POST)
+	@RequestMapping(value ="/mypagemodify", method = RequestMethod.POST)
 	private String mypagemodify(Model model, MemberVo membervo) throws Exception{
 		
 		System.out.println("modify");

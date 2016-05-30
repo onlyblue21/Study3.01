@@ -7,7 +7,7 @@
 <script src="/js/member.js" type="text/javascript"></script>
 <script type="text/javascript">
 
-	$(document).ready(function() {
+	$(function() {
 		
 		$("#password").keyup(function() {
 			if($("#password").val() != $("#password2").val()) {
@@ -36,28 +36,38 @@
 // 		$("#action-button").click(function(){
 		$("#id").keyup(function(){
 			var id = $("#id").val();
+			var length = id.length;
 			
+			if(length > 3){
+				$("#result").html('');
 			$.ajax({
 				url:"/id_check",
-				type:'GET',
+				type:'get',
 				data: {"id":id},
-				
 				error:function(data){
-					alert(data);					
-					$("#info").html("error");
+					$("#result").css('color','red');
+					$("#result").html("ajax : error");
 				},
 				
 				success:function(data){
-					if(data =="true"){
-						$("#info").css('color','red');
-						$("#info").html("같은 ID가 이미 사용중입니다.");	
+					console.log(data);
+					if(data){
+						$("#result").css('color','red');
+						$("#result").html("같은 ID가 이미 사용중입니다.");	
 					}else{
-						$("#info").css('color','#00FF24');	
-						$("#info").html('사용할수 있는 ID입니다.');	
+						$("#result").css('color','#00FF24');	
+						$("#result").html('사용할수 있는 ID입니다.');	
 						}
 					},
-				});
-			});		//id end
+				}); 	//ajax end
+				
+			}else if(length < 3){
+				$("#result").css('color','red');
+				$("#result").html('4글자 이상.')
+			}
+			
+			//if end
+		});		//id end
 				
 		
 		
@@ -84,9 +94,8 @@
 					<label class="control-label col-sm-2" for="id">아이디</label>
 					<div class="col-sm-3">
 						<input type="text" id="id" name="id" placeholder="아이디"
-							class="form-control" maxlength="12" minlength="8" required>
+							class="form-control" maxlength="12" minlength="4" required>
 						<!-- test start -->
-						<div id="info"></div>
 						<!-- end -->
 					</div>
 					<span class="col-sm-3" id="result"></span>
@@ -166,7 +175,7 @@
 					<label class="control-label col-sm-2" for="birth">생년월일</label>
 					<div class="col-sm-3">
 						<input type="text" id="birth" name="birth" placeholder="생년월일"
-							class="form-control" maxlength="8" minlength="8" required>
+							class="form-control" maxlength="6" minlength="6" required>
 					</div>
 				</div>
 

@@ -252,7 +252,7 @@ function Content_delete(){
 
 
 
-function idcheck(){
+/*function idcheck(){
 	
 	var data=new Object();
 	data.type=$("#id").attr("id");
@@ -268,10 +268,31 @@ function idcheck(){
 		}
 	}
 	_ajax("post","/ajax","json",param,success);
-}
+}*/
 
 
-
+/*function idCheck(){
+	
+	var idText = document.getElementById("id").value;
+	var span = document.getElementById("result");
+	if(idText.length < 8){
+		span.innerHTML = "ID는 8글자 이상 입력하세요.";
+	}else{
+		span.innerHTML="";
+		
+		if(window.ActiveXObject){
+			xhr = new XMLHttpRequest("Microsoft.XMLHTTP");
+			
+		}else{
+			xhr = new XMLHttpRequest();
+		}
+		
+		xhr.open("POST","/javascript/AjaxServlet",true);
+		xhr.onreadystatechange = callback();
+		xhr.setRequestHeader("content-type","application/x-www-form-urlencoded");
+		xhr.send("command=idDupCheck&id="+idtext);
+	}
+}*/
 
 
 

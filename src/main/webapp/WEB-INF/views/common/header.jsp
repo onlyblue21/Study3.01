@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <header>
 <script type="text/javascript" src="http://s1.daumcdn.net/svc/attach/U0301/cssjs/ruliweb/20160120105550/js/lib/ui/Slider.js"></script>
-<script type="text/javascript" src="http://s1.daumcdn.net/svc/attach/U0301/cssjs/ruliweb/20160120105550/js/lib/ui/CustomerServiceLayer.js"></script>
 <script type="text/javascript" src="http://s1.daumcdn.net/svc/attach/U0301/cssjs/ruliweb/20160120105550/js/lib/ui/Tab.js"></script>
 <script type="text/javascript" src="http://s1.daumcdn.net/tiara/tracker/tiara.js"></script>
 <script type="text/javascript" src="http://s1.daumcdn.net/svc/attach/U0301/cssjs/ruliweb/20160120105550/js/lib/Suggest.js"></script>

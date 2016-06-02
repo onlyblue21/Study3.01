@@ -20,7 +20,6 @@ public class MemberServiceImpl implements MemberService{
 	
 	@Override
 	public int memberjoin(MemberVo membervo) throws Exception{
-		
 		return memberdao.memberjoin(membervo);
 	}
 	
@@ -52,5 +51,9 @@ public class MemberServiceImpl implements MemberService{
 		return memberdao.checkId(userId);
 	}
 	
-	
+	@Override
+	public void memberDelete(MemberVo membervo) throws Exception{
+		memberdao.memberDelete(membervo);
+		
+	}
 }

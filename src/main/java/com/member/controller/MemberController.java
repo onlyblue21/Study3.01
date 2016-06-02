@@ -54,11 +54,6 @@ public class MemberController {
 	}
 	
 	
-	
-	
-	
-	
-	
 	@RequestMapping(value = "/logout")
 	public String logout(Model model, HttpSession session){
 		
@@ -67,7 +62,7 @@ public class MemberController {
 		return "/main/MainR";
 	}
 	
-	@RequestMapping(value = "/id_check", method = RequestMethod.GET)
+	@RequestMapping(value = "/id_check", method = RequestMethod.POST)
 	@ResponseBody
 	public boolean id_check(@RequestParam(value="id") String userId, Model model, HttpServletResponse res ) throws Exception{
 		boolean checkId = true;

@@ -43,7 +43,7 @@
 				$("#result").html('');
 			$.ajax({
 				url:"/id_check",
-				type:'get',
+				type:'post',
 				data: {"id":id},
 				error:function(data){
 					$("#result").css('color','red');

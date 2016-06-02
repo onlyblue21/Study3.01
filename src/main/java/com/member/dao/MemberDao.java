@@ -17,7 +17,6 @@ public class MemberDao {
 	private SqlSession sqlSession;
 	
 	public int memberjoin(MemberVo membervo) throws Exception{
-		
 		return sqlSession.insert("memberjoin", membervo);
 	}
 	
@@ -28,7 +27,6 @@ public class MemberDao {
 	}
 	
 	public int memberphoto(MemberVo membervo) throws Exception{
-		
 		return sqlSession.insert("memberphoto",membervo);
 	}
 	
@@ -43,6 +41,10 @@ public class MemberDao {
 	public boolean checkId(String userId)throws Exception{
 		int checkId =  sqlSession.selectOne("checkId",userId);
 		return checkId < 1 ? false : true;
+	}
+	
+	public void memberDelete(MemberVo membervo) throws Exception{
+		sqlSession.delete("memberDelete", membervo);
 	}
 	
 	

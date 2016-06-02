@@ -6,7 +6,18 @@
 
 <mapper namespace="MemberDao">
 
-		<!-- 로그인 -->
+	<!-- 회원 탈퇴  -->
+	<update id="memberDelete" parameterType="Member">
+		UPDATE
+			MEMBER
+		SET
+			MEMBER_STATUS = #{MEMBER_STATUS}
+		WHERE
+			ID = #{ID}		
+	</update>
+
+
+	<!-- 로그인 -->
 	<select id="Login" parameterType="Member" resultType="int">
 	<![CDATA[
 		SELECT 

@@ -58,4 +58,18 @@ public class AdminMemberServiceImpl implements AdminMemberService{
 		
 		return adminmemberdao.memberList(param);
 	}
+
+    /**
+     * 회원 탈퇴
+     *
+     * @param memberVo {@link MemberVo}
+     */
+	@Override
+	public void deleteSvc(MemberVo memberVo) throws Exception {
+		// TODO Auto-generated method stub
+        	adminmemberdao.deleteSeq(memberVo.getMember_seq());
+	
+	}
+	
+	
 }

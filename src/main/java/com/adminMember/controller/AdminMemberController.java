@@ -7,7 +7,9 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -59,6 +61,18 @@ public class AdminMemberController {
 		
 		return mav;
 	}
-
+	
+    @RequestMapping(value = "/adminMember/deleteSvc", method = RequestMethod.POST)
+    public void deleteSvc(MemberVo memberVo,@RequestBody String param) throws Exception {
+    	System.out.println("<"+param);
+    	String [] temp = param.split("&");
+    	for (int i = 0; i < temp.length; i++) {
+    		System.out.println(temp[i]);
+    		String temp2 = temp[i].replace("memberSeqs=", "");
+    		System.out.println(temp2);
+    		memberVo.setMember_seq(Integer.parseInt(temp2));
+    		adminmemberservice.deleteSvc(memberVo);
+		}
+    }
 
 }

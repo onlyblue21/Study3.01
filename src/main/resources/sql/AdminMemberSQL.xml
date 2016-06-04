@@ -18,7 +18,7 @@
 		</where>
 	</select>
 	
-		<!-- 회원 리스트 조회 -->
+	<!-- 회원 리스트 조회 -->
 	<select id="memberList" resultType="Member">
 		SELECT 
 				ID
@@ -26,8 +26,8 @@
 				,NICK_NAME
 				,EMAIL
 				,SEX
+				,Member_seq				
 		FROM MEMBER
-		
 		<where>
 		<if test="value != null or type != null">
 			<if test="type != 'ALL'">
@@ -38,4 +38,13 @@
 		order by id
 		LIMIT #{pageNavigator.startRow}, #{pageNavigator.linePerPage}
 	</select>
+
+    <!-- 회원 탈퇴 -->
+    <delete id="deleteSeq" parameterType="int">
+        DELETE 
+          FROM MEMBER WHERE 
+           MEMBER_SEQ = #{svcSeq} 
+
+    </delete>
+    
 </mapper>

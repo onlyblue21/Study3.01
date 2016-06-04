@@ -42,7 +42,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public List<MemberVo> memberInfo(MemberVo membervo) throws Exception{
+	public ArrayList<MemberVo> memberInfo(MemberVo membervo) throws Exception{
 		return memberdao.memberInfo(membervo);
 	}
 	
@@ -52,7 +52,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
-	public void memberUpdate(MemberVo membervo) throws Exception{
-		memberdao.memberUpdate(membervo);
+	public void memberUpdate(String userId) throws Exception{
+		memberdao.memberUpdate(userId);
 	}
 }

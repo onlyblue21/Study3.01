@@ -1,7 +1,6 @@
 package com.member.dao;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -34,8 +33,8 @@ public class MemberDao {
 		return (ArrayList)sqlSession.selectList("ajaxselect", key);
 	}
 	
-	public List<MemberVo> memberInfo(MemberVo membervo){
-		return sqlSession.selectList("memberInfo", membervo);
+	public ArrayList<MemberVo> memberInfo(MemberVo membervo){
+		return (ArrayList)sqlSession.selectList("memberInfo", membervo);
 	}
 	
 	public boolean checkId(String userId)throws Exception{
@@ -43,8 +42,8 @@ public class MemberDao {
 		return checkId < 1 ? false : true;
 	}
 	
-	public void memberUpdate(MemberVo membervo) throws Exception{
-		sqlSession.update("memberUpdate", membervo);
+	public void memberUpdate(String userID) throws Exception{
+		sqlSession.update("memberUpdate", userID);
 	}
 	
 	

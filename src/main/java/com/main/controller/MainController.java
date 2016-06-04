@@ -1,8 +1,8 @@
 package com.main.controller;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 import java.util.Locale;
 
 import javax.annotation.Resource;
@@ -57,10 +57,12 @@ public class MainController {
 		_login = memberservice.Login(membervo);
 		if (_login) {
 			//세션에 모든 정보 담을거임
-			List<MemberVo> memberInfo = memberservice.memberInfo(membervo);
+			ArrayList<MemberVo> memberInfo = memberservice.memberInfo(membervo);
 			
+			System.out.println("test id = " + memberInfo.get(0).getId());
 			session.setAttribute("memberInfo", memberInfo.get(0));
-			session.setAttribute("memberID", memberInfo.get(0).getId());
+			session.setAttribute("memberId", memberInfo.get(0).getId());
+			System.out.println("member = " + memberInfo.get(0));
 			System.out.println("LOGIN 성공");
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
 			model.addAttribute("LoginResult","SUCCESS");

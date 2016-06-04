@@ -10,7 +10,6 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
-import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -48,17 +47,16 @@ public class MemberController {
 		
 		System.out.println("회원탈퇴");
 		try{
+			String userId = (String) session.getAttribute("memberId");
+			System.out.println("uuseId = " + userId);
 			System.out.println("session = " + session.getAttribute("memberId"));
-			System.out.println("id=" + session.getId());
-			String hex = session.getId();
-			System.out.println("hex to String = " + new String(DatatypeConverter.parseHexBinary(hex),"utf-8"));
-			System.out.println("session.is = " + session.getAttribute("memberInfo"));
-			memberservice.memberUpdate(membervo);
+			System.out.println("session.is = " + session.getAttribute("memberInfo.id"));
+			memberservice.memberUpdate(userId);
 		
 		}catch(Exception ex){
 			
 		}
-		return "";
+		return "/main/MainR";
 	}
 	
 	

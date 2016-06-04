@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<script src="/js/member.js" type="text/javascript"></script>
+<script src="/js/member/member.js" type="text/javascript"></script>
 <title>Mypage</title>
 </head>
 <body>

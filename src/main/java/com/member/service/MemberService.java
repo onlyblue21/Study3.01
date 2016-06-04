@@ -19,5 +19,5 @@ public interface MemberService {
 	
 	public boolean checkId(String userId) throws Exception;
 	
-	public void memberDelete(MemberVo membervo) throws Exception;
+	public void memberUpdate(MemberVo membervo) throws Exception;
 }

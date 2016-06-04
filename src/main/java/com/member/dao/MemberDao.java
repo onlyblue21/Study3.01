@@ -43,8 +43,8 @@ public class MemberDao {
 		return checkId < 1 ? false : true;
 	}
 	
-	public void memberDelete(MemberVo membervo) throws Exception{
-		sqlSession.delete("memberDelete", membervo);
+	public void memberUpdate(MemberVo membervo) throws Exception{
+		sqlSession.update("memberUpdate", membervo);
 	}
 	
 	

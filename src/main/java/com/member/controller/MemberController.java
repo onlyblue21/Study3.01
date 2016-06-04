@@ -10,6 +10,7 @@ import java.util.UUID;
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.xml.bind.DatatypeConverter;
 
 import org.apache.commons.io.FileUtils;
 import org.slf4j.Logger;
@@ -42,14 +43,21 @@ public class MemberController {
 	
 	
 	//회원탈퇴
-	@RequestMapping(value="/memberdelete", method = RequestMethod.POST)
-	public String memberdelete(Model model, MemberVo membervo){
+	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
+	public String memberUpdate(Model model, MemberVo membervo, HttpSession session) {
 		
+		System.out.println("회원탈퇴");
+		try{
+			System.out.println("session = " + session.getAttribute("memberId"));
+			System.out.println("id=" + session.getId());
+			String hex = session.getId();
+			System.out.println("hex to String = " + new String(DatatypeConverter.parseHexBinary(hex),"utf-8"));
+			System.out.println("session.is = " + session.getAttribute("memberInfo"));
+			memberservice.memberUpdate(membervo);
 		
-		
-		
-		
-		
+		}catch(Exception ex){
+			
+		}
 		return "";
 	}
 	

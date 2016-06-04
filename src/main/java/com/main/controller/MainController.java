@@ -60,6 +60,7 @@ public class MainController {
 			List<MemberVo> memberInfo = memberservice.memberInfo(membervo);
 			
 			session.setAttribute("memberInfo", memberInfo.get(0));
+			session.setAttribute("memberID", memberInfo.get(0).getId());
 			System.out.println("LOGIN 성공");
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
 			model.addAttribute("LoginResult","SUCCESS");

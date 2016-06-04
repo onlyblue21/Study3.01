@@ -52,8 +52,7 @@ public class MemberServiceImpl implements MemberService{
 	}
 	
 	@Override
-	public void memberDelete(MemberVo membervo) throws Exception{
-		memberdao.memberDelete(membervo);
-		
+	public void memberUpdate(MemberVo membervo) throws Exception{
+		memberdao.memberUpdate(membervo);
 	}
 }

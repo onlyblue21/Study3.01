@@ -30,8 +30,8 @@ public class MemberVo {
 	  
 	  private Date change_date;
 	  private String change_yn;
-	  private String member_seq;
-	  
+	  private int member_seq;
+	  private int[] memberSeqs;
 	  
 	public String getId() {
 		return id;
@@ -183,13 +183,20 @@ public class MemberVo {
 	public void setChange_yn(String change_yn) {
 		this.change_yn = change_yn;
 	}
-	public String getMember_seq() {
+
+	public int getMember_seq() {
 		return member_seq;
 	}
-	public void setMember_seq(String member_seq) {
+	public void setMember_seq(int member_seq) {
 		this.member_seq = member_seq;
 	}
-	  
+	public int[] getMemberSeqs(){
+        return memberSeqs;
+	}
+	   
+	public void setMemberSeqs(int[] memberSeqs){
+	    this.memberSeqs = memberSeqs;
+	}
 	  	
 	  
 	  

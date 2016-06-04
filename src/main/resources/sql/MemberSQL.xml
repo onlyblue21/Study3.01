@@ -7,11 +7,11 @@
 <mapper namespace="MemberDao">
 
 	<!-- 회원 탈퇴  -->
-	<update id="memberDelete" parameterType="Member">
+	<update id="memberUpdate" parameterType="Member">
 		UPDATE
 			MEMBER
 		SET
-			MEMBER_STATUS = #{MEMBER_STATUS}
+			MEMBER_STATUS = "D001"
 		WHERE
 			ID = #{ID}		
 	</update>

@@ -50,6 +50,10 @@ public class MemberServiceImpl implements MemberService{
 	public boolean checkId(String userId) throws Exception{
 		return memberdao.checkId(userId);
 	}
+	@Override
+	public boolean memberLeave(MemberVo membervo) throws Exception{
+		return memberdao.memberLeave(membervo);
+	}
 	
 	@Override
 	public void memberUpdate(String userId) throws Exception{

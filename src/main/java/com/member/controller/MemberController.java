@@ -64,6 +64,7 @@ public class MemberController {
 	public String logout(Model model, HttpSession session){
 		
 		//모든 세션삭제  
+		System.out.println("logout");
 		session.invalidate();
 		return "/main/MainR";
 	}
@@ -219,13 +220,6 @@ public class MemberController {
 		
 		return "/member/MypageModify";
 	}
-		
-	
-	
-	
-	
-	
-	
 	
 	
 	

@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
 <script src="/js/member.js" type="text/javascript">
-	window.onloda = function check() {
+	window.onload = function check() {
 		var check = "${login}";
 		var membercheck = "${member}";
 
@@ -17,6 +17,7 @@
 		}
 	}
 </script>
+<script src="/js/member/member.js" type="text/javascript" ></script>
 <title>Welcome!</title>
 </head>
 <body>

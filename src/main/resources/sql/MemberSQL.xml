@@ -5,6 +5,20 @@
 		"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="MemberDao">
+	<!-- 탈퇴회원 체크 -->
+	<select id="memberLeave" parameterType="Member" resultType="int">
+		SELECT 
+				COUNT(1) 
+		FROM 
+				MEMBER 
+		WHERE 
+				ID = #{id}
+				AND 
+				PASSWORD = #{password}
+				AND
+				MEMBER_STATUS =#{member_status}
+	</select>
+
 
 	<!-- 회원 탈퇴  -->
 	<update id="memberUpdate" parameterType="String">
@@ -28,9 +42,12 @@
 				ID = #{id}
 				AND 
 				PASSWORD = #{password}
+				AND
+				MEMBER_STATUS =#{member_status}
 				]]>
 	</select>
 	
+	<!-- 로그인후 회원 정보 -->
 	<select id="memberInfo" parameterType="Member" resultType="member">
 		
 			SELECT 
@@ -43,6 +60,8 @@
 				PASSWORD = #{password}
 	
 	</select>
+	
+	<!-- 중복 ID체크 -->
 	<select id="checkId" parameterType="String" resultType="int">
 		
 			SELECT 
@@ -51,7 +70,6 @@
 					MEMBER
 			WHERE
 				ID = #{id}
-	
 	</select>
 	
 	
@@ -68,7 +86,7 @@
 	</select>
 	
 	
-	
+		
 	<insert id="memberphoto" parameterType="Member">
 	<![CDATA[
 		INSERT INTO
@@ -84,6 +102,7 @@
 		]]>
 	</insert>
 	
+	<!-- 회원 가입 -->
 	<insert id="memberjoin" parameterType="Member" >
 		<![CDATA[
 		INSERT INTO    

@@ -53,10 +53,12 @@ public class MainController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(Model model, MemberVo membervo, HttpSession session) throws Exception {
 		boolean _login = false;
-
+		boolean memberLeave = false;
 		_login = memberservice.Login(membervo);
+		
+		//회원 정보가 있음
 		if (_login) {
-			//세션에 모든 정보 담을거임
+			//세션에 모든 정보 담을
 			ArrayList<MemberVo> memberInfo = memberservice.memberInfo(membervo);
 			
 			System.out.println("test id = " + memberInfo.get(0).getId());
@@ -68,11 +70,20 @@ public class MainController {
 			model.addAttribute("LoginResult","SUCCESS");
 			
 			return "/main/MainR";
-			
-		} else {
-			System.out.println("로그인실패");
-			model.addAttribute("login", "ID가 없습니다.");
+		
+		//회원 정보가 없음
+		}else if(_login == false){
+			memberLeave = memberservice.memberLeave(membervo);
+			if(memberLeave){
+				model.addAttribute("login","탈퇴한 회원 입니다.");
+			}
+			else{
+				System.out.println("로그인실패");
+				model.addAttribute("login", "ID가 없습니다.");
+				return "/main/MainR";
+			}
 			return "/main/MainR";
 		}
+		return "";
 	}
 }

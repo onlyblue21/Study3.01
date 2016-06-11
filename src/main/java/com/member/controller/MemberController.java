@@ -110,18 +110,14 @@ public class MemberController {
 		
 		if(!membervo.getId().equals(null) || !membervo.getId().equals("") ){
 			
-			new MemberController().fileUpload(mulpartfile, model, membervo );
+			new MemberController().fileUpload(mulpartfile, membervo );
 			long time = System.currentTimeMillis();
-		    SimpleDateFormat ctime = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
-		    String CurrentTime = ctime.format(new Date(time));
+//		    SimpleDateFormat ctime = new SimpleDateFormat("yyyy-mm-dd hh:mm:ss");
+//		    String CurrentTime = ctime.format(new Date(time));
 		    
-		    System.out.println("CurrentTime = " + CurrentTime);
 		    System.out.println("파일PATH = "  + membervo.getFileupload());
 			memberservice.memberjoin(membervo);
 //			memberservice.memberphoto(membervo);	//---- 아직 미완성
-			System.out.println("memberseq = " + membervo.getMember_seq());
-			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
-			model.addAttribute("LoginResult","SUCCESS");
 			System.out.println("회원가입 완료!");
 		}else{
 			System.out.println("id가 널일경우");
@@ -173,30 +169,31 @@ public class MemberController {
 	
 
 	//fileupload
-	public void fileUpload(MultipartFile mulpartfile, Model model, MemberVo membervo) throws IOException {
+	public void fileUpload(MultipartFile mulpartfile, MemberVo membervo) throws IOException {
 		
 		final Logger logger = LoggerFactory.getLogger(MemberController.class);
-		String path = "F:/FIle";  //로컬
-//		String path ="j:/File"; //서버
-		String fileName = UUID.randomUUID().toString() + ".png"; 
+		String path = "c:/FIle";  //로컬
+//		String path ="j:/File"; //서버  
+//		String fileName = UUID.randomUUID().toString() + ".png";   //Random fileName 
+		String fileName = mulpartfile.getOriginalFilename(); 
 		
 		System.out.println("report.getName " +  mulpartfile.getName());
 		System.out.println("report.getsize =" + mulpartfile.getSize());
 		System.out.println("report.getOriginalFilename =" + mulpartfile.getOriginalFilename());
+		try{
 		
 		 File filepath = new File(path);
 	     File newFile = new File(path+"/"+fileName);
 	     logger.debug("newFile:"+newFile);
-		 try{
 			 if(!filepath.isDirectory()){
 				 filepath.mkdirs();
 			 }
 			 FileUtils.writeByteArrayToFile(newFile, mulpartfile.getBytes());
 			 membervo.setFileupload(newFile.toString());
-	         model.addAttribute("message", "파일업로드 성공!");
+			 System.out.println("toString= "+newFile.toString());
+			 System.out.println("getFileupload = " + membervo.getFileupload());
 		 }catch(Exception ex){
 			 ex.printStackTrace();
-	            model.addAttribute("message", "파일업로드 실패!");
 		 }
 	}
 

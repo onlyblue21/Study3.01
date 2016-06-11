@@ -44,7 +44,7 @@ public class MemberDao {
 	
 	public boolean memberLeave(MemberVo membervo) throws Exception{
 		int memberLeave = sqlSession.selectOne("memberLeave", membervo);
-		return memberLeave < 1? false : true;
+		return memberLeave < 1 ? false : true;
 	}
 	
 	public void memberUpdate(String userID) throws Exception{

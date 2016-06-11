@@ -16,7 +16,7 @@
 			AND 
 				PASSWORD = #{password}
 			AND
-				MEMBER_STATUS = #{member_status}
+				MEMBER_STATUS = "D001"
 	</select>
 
 

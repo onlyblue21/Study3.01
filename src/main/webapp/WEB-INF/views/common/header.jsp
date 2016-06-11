@@ -20,7 +20,7 @@
 			<li>중고거래</li>
 			<li>갤러리</li>
 			<li>MyPage</li>
-			<li>관리자</li>
+			<li><a href="/adminMember/">관리자</a></li>
 		</ul>
 	</div>
 	</nav>

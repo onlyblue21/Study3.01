@@ -13,10 +13,10 @@
 				MEMBER 
 		WHERE 
 				ID = #{id}
-				AND 
+			AND 
 				PASSWORD = #{password}
-				AND
-				MEMBER_STATUS =#{member_status}
+			AND
+				MEMBER_STATUS = #{member_status}
 	</select>
 
 
@@ -25,7 +25,7 @@
 		UPDATE
 			MEMBER
 		SET
-			MEMBER_STATUS = "D001"
+			MEMBER_STATUS = "D001",	DROP_OUT_DATE = NOW()
 		WHERE
 			ID = #{ID}
 	</update>

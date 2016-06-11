@@ -33,12 +33,9 @@ function mypageModefy(){
 	mypagefrm.action ="/mypagemodify";
 	mypagefrm.submit();
 }
-
-
-
-
-
 //----------------------------profile------------------------------------------
+
+
 
 
 //----------------------------memberdelete-------------------------------------

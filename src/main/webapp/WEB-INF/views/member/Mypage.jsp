@@ -9,8 +9,6 @@
 <h1>
 mypage
 </h1>
-<h3> session = ${memberInfo.live_nationality}</h3>
-
      <form name="mypagefrm" action="/memberUpdate" method="POST" >
      <div align="center">
 		 <table border="2" width=250 bordercolor="green" cellspacing="2"

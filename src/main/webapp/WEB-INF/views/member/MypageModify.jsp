@@ -7,7 +7,7 @@
 <body>
 	<jsp:include page="/WEB-INF/views/common/header.jsp" />
 	<div class="container-fluid">
-		<form role="form" name="memberjoin" action="/memberjoin_j"
+		<form role="form" name="memberjoin" action="/memberModify"
 			method="post" class="form-horizontal"
 			onsubmit="return joinvalidate(this);" enctype="multipart/form-data">
 			<fieldset>
@@ -96,12 +96,12 @@
 
 
 				<!-- 프로필 사진 -->
-				<div class="form-group">
-					<label class="control-label col-sm-2" for="upload">프로필 사진</label>
-					<div class="col-sm-3">
-						<input type="file" name="upload" value="${memberInfo.upload}" />
-					</div>
-				</div>
+<!-- 				<div class="form-group"> -->
+<!-- 					<label class="control-label col-sm-2">프로필 사진</label> -->
+<!-- 					<div class="col-sm-3"> -->
+<%-- 						<input type="file" name="upload" value="${memberInfo.upload}" /> --%>
+<!-- 					</div> -->
+<!-- 				</div> -->
 
 				<!-- 거주지역 -->
 				<div class="form-group">

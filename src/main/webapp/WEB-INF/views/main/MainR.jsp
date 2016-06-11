@@ -1,21 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
 <head>
-<script src="/js/member.js" type="text/javascript">
-	window.onload = function check() {
-		var check = "${login}";
-		var membercheck = "${member}";
+<script type="text/javascript" >
+window.onload = function() {
 
-		if (check) {
-			alert(check);
-			return false;
-		}
+	var check = "${login}";
+	var membercheck = "${member}";
 
-		if (membercheck) {
-			alert("로그인 되었습니다.");
-			return false;
-		}
+	if (check) {
+		alert(check);
+		return false;
 	}
+
+	if (membercheck) {
+		alert("로그인 되었습니다.");
+		return false;
+	}
+}
+
 </script>
 <script src="/js/member/member.js" type="text/javascript" ></script>
 <title>Welcome!</title>

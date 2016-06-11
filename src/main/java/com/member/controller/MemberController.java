@@ -203,17 +203,24 @@ public class MemberController {
 	//mypage
 	@RequestMapping(value="/mypage", method = RequestMethod.POST)
 	private String mypage(Model model, MemberVo membervo)throws Exception{
-		
-		System.out.println("mypage 이동");
-		
-		
 		return "/member/Mypage";
 	}
 
+	//회원 정보 수정
+	public String memberModify(Model model, MemberVo membervo) throws Exception{
+		
+		System.out.println("회원 정보 수정 클릭");
+		
+		return "/main/MainR";
+	}
 	
-	//mypagemodify
+	
+	
+	
+	//mypageModefy 이동
 	@RequestMapping(value ="/mypagemodify", method = RequestMethod.POST)
 	private String mypagemodify(Model model, MemberVo membervo) throws Exception{
+		
 		
 		System.out.println("modify");
 		

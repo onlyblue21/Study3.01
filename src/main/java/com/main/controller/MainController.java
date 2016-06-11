@@ -68,6 +68,7 @@ public class MainController {
 			System.out.println("LOGIN 성공");
 			model.addAttribute("LOGIN_RESULT",membervo.getId()+"님 로그인 되었습니다.");
 			model.addAttribute("LoginResult","SUCCESS");
+			model.addAttribute("login", memberInfo.get(0).getId()+"님 로그인 되었습니다.");
 			
 			return "/main/MainR";
 		

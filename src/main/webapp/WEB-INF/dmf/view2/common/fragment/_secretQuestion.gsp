@@ -1,0 +1,1 @@
+<g:select id="secretQuestion" name="secretQuestion" from="${['初めて行った外国は？','母親の旧姓は？','卒業した小学校は？','生まれた町の名前は？','初めて買った車の名前は？']}" value="${secretQuestion}" />

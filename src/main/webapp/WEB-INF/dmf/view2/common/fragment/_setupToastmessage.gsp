@@ -1,0 +1,1 @@
+<jq:jquery>$().toastmessage( { position : 'middle-center' } );</jq:jquery>

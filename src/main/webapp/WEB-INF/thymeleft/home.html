@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8" />
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>Thymeleaf tutorial - Answer for exercise 1: bean values</h1>
+	<h2>Product information</h2>
+	<table th:if="${voList != null} ">
+			<form mothod="post" name="list" action="list">
+				<tr>
+					<td th:each="bean : ${voList}">
+						<a href="#" class="listNumber" align="left" th:text="${bean}"></a>
+					</td>
+				</tr>
+				<input type="hidden" name="className" value=""/>
+		</form>
+	</table>
+</body>
+<script type="text/javascript"
+	src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".listNumber").click(function(){
+		
+		var test = $(this).text();
+			alert(test);
+			$("input[name=className]").val(test);
+			$("form[name=list]").submit();
+			
+	});
+	
+});
+
+// function test(val){
+// 	alert($(val).text());
+// 	$.ajax({
+//         type:"GET",
+//         url:"/thymeleft/test",
+//         data:{val:$(val).text()},
+//         //dataType:"JSON", // 옵션이므로 JSON으로 받을게 아니면 안써도 됨
+//         success : function(data) {
+// 			alert(data);
+//         },
+//         error : function(xhr, status, error) {
+//             alert("에러발생");
+//         }
+
+//   });
+// }
+</script>
+</html>
+
